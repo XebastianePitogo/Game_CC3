@@ -4,7 +4,7 @@ using Dialogue;
 using AsciiArt;
 using Combat;
 //check
-namespace game
+namespace Game
 {
     public class Player
     {

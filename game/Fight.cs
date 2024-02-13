@@ -1,6 +1,6 @@
 using System;
 using AsciiArt;
-using game;
+using Game;
 namespace Combat;
 public class CombatProgram
 {

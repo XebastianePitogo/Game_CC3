@@ -1,5 +1,5 @@
 using System;
-using game;
+using Game;
 
 namespace Dialogue
 {
