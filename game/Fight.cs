@@ -2,93 +2,119 @@ using System;
 using AsciiArt;
 using game;
 namespace Combat;
-    public class CombatProgram
+public class CombatProgram
+{
+    Death deathScene = new Death();
+    Win winscene = new Win();
+    private Player player;
+
+    static int playerHP = 100;
+    static int playerLeftHand = 20;
+    static int playerRightHand = 20;
+
+    static int enemyHP = 100;
+    static int enemyLeftHand = 20;
+    static int enemyRightHand = 20;
+
+    static bool playerLeftHandLost = false;
+    static bool playerRightHandLost = false;
+
+    static bool enemyLeftHandLost = false;
+    static bool enemyRightHandLost = false;
+
+    public CombatProgram(Player player)
     {
-        private Player player;
-
-        static int playerHP = 100;
-        static int playerLeftHand = 20;
-        static int playerRightHand = 20;
-
-        static int enemyHP = 100;
-        static int enemyLeftHand = 20;
-        static int enemyRightHand = 20;
-
-        static bool playerLeftHandLost = false;
-        static bool playerRightHandLost = false;
-
-        static bool enemyLeftHandLost = false;
-        static bool enemyRightHandLost = false;
-
-        public CombatProgram(Player player)
-        {
-            this.player = player;
-        }
+        this.player = player;
+    }
 
     public void StartGame()
-{
-    Win winscene = new Win();
-    Death deathScene = new Death();
-    Console.WriteLine("You find yourself unable to run, and the only way out is to... spill blood.");
-
-    while (playerHP > 0 && enemyHP > 0)
     {
-        DisplayStats();
-        PlayerTurn();
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("You find yourself unable to run, and the only way out is to... spill blood.");
 
-        if (enemyHP <= 0)
+        while (playerHP > 0 && enemyHP > 0)
         {
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(winscene.Winart());
-            Console.WriteLine("You stand tall and won in battle, you get to see another day of suffering");
-            Console.ResetColor();
-            break;
+            DisplayStats();
+            PlayerTurn();
+
+            if (enemyHP <= 0 && enemyLeftHand <= 0 && enemyRightHand <= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nEnemy Main HP fell to <0>!");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\nThe enemy fell in battle, you felt a sense of pity, yet there was no guilt for the slain soul.");
+                Console.WriteLine("\nYou stand tall and won in the aftermath of the battle, you are granted another day to endure the relentless suffering that awaits for your destiny... ");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("\n" + winscene.Winart());
+                Console.ResetColor();
+                break;
+            }
+
+            EnemyTurn();
+
+            if (playerHP <= 0 && playerLeftHand <= 0 && playerRightHand <= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nYou succumbed during battle, You have finally embraced bliss after enduring the prolonged suffering of battle...");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\n" + deathScene.SkullArt());
+                Console.ResetColor();
+                break;
+            }
         }
-
-        EnemyTurn();
-
-        if (playerHP <= 0)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine(deathScene.SkullArt());
-            Console.WriteLine("You succumbed during battle, and now, the God of Netherhelm beckons for the arrival of your lost soul");
-            Console.ResetColor();
-            break;
-        } 
     }
-}
-        public void DisplayStats()
-        {
-            Console.WriteLine(player.username + $"'s HP: {playerHP} | Left Hand: {playerLeftHand} | Right Hand: {playerRightHand}");
-            Console.WriteLine($"Enemy HP: {enemyHP} | Left Hand: {enemyLeftHand} | Right Hand: {enemyRightHand}");
-        }
+    public void DisplayStats()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("\n======================================================================");
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine(player.username + $"'s Main HP: <{playerHP}>     |   Left Limb: <{playerLeftHand}>   |   Right Limb: <{playerRightHand}>");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("----------------------------------------------------------------------");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"Enemy Main HP: <{enemyHP}>     |   Left Limb: <{enemyLeftHand}>   |   Right Limb: <{enemyRightHand}>");
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("======================================================================");
+        Console.ResetColor();
+    }
 
     static void PlayerTurn()
     {
-            Console.WriteLine("================================");
-            Console.WriteLine("||Your Turn!| Choose an Action:|");
-            Console.WriteLine("|==============================|");
-            Console.WriteLine("| 1. Attack                    |");
-            Console.WriteLine("| 2. Defend                    |");
-            Console.WriteLine("================================");
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("\n===================================");
+        Console.WriteLine("| |Your Turn!|    Choose an Action:|");
+        Console.WriteLine("|==================================|");
+        Console.WriteLine("| <1> Attack                       |");
+        Console.WriteLine("|----------------------------------|");
+        Console.WriteLine("| <2> Defend                       |");
+        Console.WriteLine("====================================");
+        Console.ResetColor();
 
         int choice = GetValidInput(1, 2);
 
         if (choice == 1)
         {
-            Console.WriteLine("Choose target limb:");
-            Console.WriteLine("1. Left Hand");
-            Console.WriteLine("2. Right Hand");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n==================================");
+            Console.WriteLine("| Choose target limb:           |");
+            Console.WriteLine("|===============================|");
+            Console.WriteLine("| <1> Left Limb                 |");
+            Console.WriteLine("|-------------------------------|");
+            Console.WriteLine("| <2> Right Limb                |");
+            Console.WriteLine("=================================");
+            Console.ResetColor();
 
             int targetLimb = GetValidInput(1, 2);
 
-            if ((targetLimb == 1 && !playerLeftHandLost) || (targetLimb == 2 && !playerRightHandLost))
+            if ((targetLimb == 1) || (targetLimb == 2))
             {
                 AttackEnemy(targetLimb);
             }
 
         }
-        else
+        else if (choice == 2)
         {
             Defend();
         }
@@ -97,94 +123,132 @@ namespace Combat;
     static void EnemyTurn()
     {
         Random random = new Random();
+
+        if (enemyLeftHandLost && enemyRightHandLost)
+        {
+            enemyDefend();
+            return;
+        }
+        if (playerLeftHandLost)
+        {
+            AttackPlayer(2);
+            return;
+        }
+        else if (playerRightHandLost)
+        {
+            AttackPlayer(1);
+            return;
+        }
+
         int choice = random.Next(1, 3);
+        AttackPlayer(choice);
+    }
 
-        if (choice == 1 && !enemyLeftHandLost)
+
+    private static void AttackPlayer(int targetLimb)
+    {
+        string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
+        int damage = new Random().Next(4, 7);
+
+        Console.WriteLine("----------------------------------------------------------------------");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"\nThe enemy attacks your <{limb}> and deals <{damage}> damage!\n");
+        Console.ResetColor();
+        Console.WriteLine("----------------------------------------------------------------------");
+        UpdatePlayerHP();
+
+        if (targetLimb == 1)
         {
-            int targetLimb = 1;
-            AttackPlayer(targetLimb);
+            playerLeftHand = Math.Max(0, playerLeftHand - damage);
+            if (playerLeftHand == 0 && !playerLeftHandLost)
+            {
+                playerLeftHandLost = true;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nYour left hand is now fatally damaged. Damage reduction of 25% will be applied on your attacks.\n");
+                Console.ResetColor();
+                Console.WriteLine("----------------------------------------------------------------------");
+                damage = (int)(damage * 0.75);
+                UpdatePlayerHP();
+            }
         }
-        else if (choice == 2 && !enemyRightHandLost)
+        else if (targetLimb == 2)
         {
-            int targetLimb = 2;
-            AttackPlayer(targetLimb);
+            playerRightHand = Math.Max(0, playerRightHand - damage);
+            if (playerRightHand == 0 && !playerRightHandLost)
+            {
+                playerRightHandLost = true;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nYour right hand is now fatally damaged. Damage reduction of 25% will be applied on your attacks.\n");
+                Console.ResetColor();
+                Console.WriteLine("----------------------------------------------------------------------");
+                damage = (int)(damage * 0.75);
+                UpdatePlayerHP();
+            }
         }
-        else
+    }
+
+
+    private static void AttackEnemy(int targetLimb)
+    {
+        string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
+        int damage = new Random().Next(3, 8);
+        Console.WriteLine("\n----------------------------------------------------------------------");
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"\nYou attack the enemy's <{limb}> and deal <{damage}> damage!\n");
+        Console.ResetColor();
+        UpdateEnemyHP();
+
+        if (targetLimb == 1)
         {
-            Defend();
+            enemyLeftHand = Math.Max(0, enemyLeftHand - damage);
+            if (enemyLeftHand == 0 && !enemyLeftHandLost)
+            {
+                enemyLeftHandLost = true;
+                Console.WriteLine("----------------------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nThe enemy's left hand is now fatally damaged. Damage reduction of 25% will be applied on its attacks.\n");
+                Console.ResetColor();
+                damage = (int)(damage * 0.75);
+                UpdateEnemyHP();
+            }
+        }
+        else if (targetLimb == 2)
+        {
+            enemyRightHand = Math.Max(0, enemyRightHand - damage);
+            if (enemyRightHand == 0 && !enemyRightHandLost)
+            {
+                enemyRightHandLost = true;
+                Console.WriteLine("----------------------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nThe enemy's right hand is now fatally damaged. Damage reduction of 25% will be applied on its attacks.\n");
+                Console.ResetColor();
+                damage = (int)(damage * 0.75);
+                UpdateEnemyHP();
+            }
         }
     }
 
-static void AttackPlayer(int targetLimb)
-{
-    int damage = new Random().Next(3, 7);
-    string limb = targetLimb == 1 ? "Left Hand" : "Right Hand";
 
-    Console.WriteLine($"The enemy attacks your {limb} and deals {damage} damage!");
-
-if (targetLimb == 1 && !playerLeftHandLost)
-{
-    if (playerLeftHand == 0)
+    private static void Defend()
     {
-        playerLeftHandLost = true;
-        Console.WriteLine("Your left hand is now disabled. Damage reduction will be applied on your attacks.");
-        damage = (0);
+        Console.WriteLine("----------------------------------------------------------------------");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\nYou chose to defend. You take reduced damage on the next attack.\n");
+        Console.ResetColor();
+
     }
-    playerLeftHand = Math.Max(0, playerLeftHand - damage);
-}
-else if (targetLimb == 2 && !playerRightHandLost)
-{
-    if (playerRightHand == 0)
+
+    private static void enemyDefend()
     {
-        playerRightHandLost = true;
-        Console.WriteLine("Your right hand is now disabled. Damage reduction will be applied on your attacks.");
-        damage = (0);
-    }
-    playerRightHand = Math.Max(0, playerRightHand - damage);
-}
-
-    UpdatePlayerHP();
-}
-
-static void AttackEnemy(int targetLimb)
-{
-    int damage = new Random().Next(5, 10);
-    string limb = targetLimb == 1 ? "Left Hand" : "Right Hand";
-
-    Console.WriteLine($"You attack the enemy's {limb} and deal {damage} damage!");
-
-if (targetLimb == 1 && !enemyLeftHandLost)
-{
-    if (enemyLeftHand == 0)
-    {
-        enemyLeftHandLost = true;
-        Console.WriteLine($"The enemy's left hand is now disabled. Damage reduction will be applied on its attacks.");
-        damage = (0);
-    }
-    enemyLeftHand = Math.Max(0, enemyLeftHand - damage);
-}
-else if (targetLimb == 2 && !enemyRightHandLost)
-{
-    if (enemyRightHand == 0)
-    {
-        enemyRightHandLost = true;
-        Console.WriteLine($"The enemy's right hand is now disabled. Damage reduction will be applied on its attacks.");
-        damage = (0);
-    }
-    enemyRightHand = Math.Max(0, enemyRightHand - damage);
-}
-
-    UpdateEnemyHP();
-}
-
-    static void Defend()
-    {
-        Console.WriteLine("You choose to defend. You take reduced damage on the next attack.");
+        Console.WriteLine("----------------------------------------------------------------------");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\nEnemy chose to defend. The enemy takes reduced damage on the next attack.");
+        Console.ResetColor();
     }
 
     static void UpdatePlayerHP()
     {
-        playerHP = (playerLeftHandLost ? 0 :playerLeftHand) + (playerRightHandLost ? 0 : enemyRightHand);
+        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 : enemyRightHand);
     }
 
     static void UpdateEnemyHP()
@@ -197,14 +261,19 @@ else if (targetLimb == 2 && !enemyRightHandLost)
         int choice;
         while (true)
         {
-            Console.Write("Enter your choice>> ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\n [Enter your choice] >> ");
+            Console.ResetColor();
             if (int.TryParse(Console.ReadLine(), out choice) && choice >= minValue && choice <= maxValue)
             {
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid option.");
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\nInvalid input. Please enter a valid option.");
+                Console.ResetColor();
             }
         }
         return choice;
