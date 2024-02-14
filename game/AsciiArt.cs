@@ -5,14 +5,14 @@ namespace AsciiArt
 
   public class Line
   {
-    public string LineArt()
+    public string lineArt()
     {
       return "\n----------------------------------------------------------------------\n";
     }
   }
   public class Title
   {
-    public string TitleArt()
+    public string titleArt()
     {
       return @"
 
@@ -30,7 +30,7 @@ namespace AsciiArt
   }
   public class Death
   {
-    public string SkullArt()
+    public string skullArt()
     {
       return @"
                            ,--.
@@ -66,7 +66,7 @@ namespace AsciiArt
 
   public class Win
   {
-    public string Winart()
+    public string winart()
     {
       return @"                                                                              
                                            --=--            
@@ -99,7 +99,7 @@ namespace AsciiArt
   }
   public class Places
   {
-    public string Yuandao()
+    public string yuandao()
     {
       Console.ForegroundColor = ConsoleColor.DarkGreen;
       return @"
@@ -135,7 +135,7 @@ namespace AsciiArt
 
         ";
     }
-    public string Jettaiah()
+    public string jettaiah()
     {
       Console.ForegroundColor = ConsoleColor.DarkRed;
       return @"
@@ -161,7 +161,7 @@ IIIIIII[_]IIIII[_]IIIIIL___J__II__|_|__II__L___JIIIII[_]IIIII[_]IIIIIIII[_]
 |     |L_J|   |L_J|    L_J|  |[]|     |[]|  |L_J     |L_J|   |L_J|     |L_J
       ";
     }
-    public string Victornia()
+    public string victornia()
     {
       Console.ForegroundColor = ConsoleColor.DarkBlue;
       return @"                          
@@ -202,5 +202,55 @@ __|          ;     |MM.MM.....---..._______...--..MM.MM]                   |
        ###          /;.\.__.-._   ...                   |===..M!!!!!!M_____|   
       ";
     }
+  }
+  public class FightEncoutner{
+            public string warrior()
+    {
+      Console.ForegroundColor = ConsoleColor.DarkRed;
+      return @"
+                           __.--|~|--.__                              ,,;/;
+                         /~     | |    ;~\                         ,;;;/;;.
+                        /|      | |    ;~\\                      ,;;;;/;;;.
+                       |/|      \_/   ;;;|\                    ,;;;;/;;;;.
+                       |/ \          ;;;/  )                 ,;;;;/;;;;;.
+                   ___ | ______     ;_____ |___....__      ,;;;;/;;;;;.
+             ___.-~ \\(| \  \.\ \__/ /./ /:|)~   ~   \   ,;;;;/;;;;;.
+         /~~~    ~\    |  ~-.     |   .-~: |//  _.-~~--,;;;;/;;;;;.
+        (.-~___     \..|    | /-.__.-\|::::| //~     ,;;;;/;;;;;.
+        /      ~~--._ \|   /          `\:: |/      ,;;;;/;;;;;.
+     .-|             ~~|   |  /V....V\ |:  |     ,;;;;/;;;;;. \
+    /                   \  |  ~`^~~^.~ |  /    ,;;;;/;;;;;.    ;
+   (        \             \|`\._____./.|/    ,;;;;/;;;;;.      .\
+  / \        \                             ,;;;;/;;;;;.     /    |
+ |            |                          ,;;;;/;;;;;.      |     |
+|`-._          |                       ,;;;;/;;;;;.              \
+|             /                      ,;;;;/;;;;;.  \              \__________
+(             )                 |  ,;;;;/;;;;;.      |        _.--~
+ \          \/ \              ,  ;;;;;/;;;;;.       /(     .-~_..--~~~~~~~~~~
+ \__         .  `       ,     ,;;;;;/;;;;;.    .   /  \   / /~
+ /          \.  |`._______ ,;;;;;;/;;;;;;.    /   :    \/./.       /|_/|   ``|
+| _.-~~~~-._ |   \ __   .,;;;;;;/;;;;;;. ~~~~.   ..    | |       /~ (/\/    ||
+/~ _.-~~~-._\    /~/   ;;;;;;;/;;;;;;;.          |    | |       / ~/_-.|-   /|
+(/~         \| /. |   ;;;;;;/;;;;;;;;            ;   | |       (.-~;  /-   / |
+|            /___ `-,;;;;;/;;;;;;;;.            |   | |      ,/)  /  /-   /  |
+ \            \  `-.`---/;;;;;;;;;. |          _.   | |    /.(.  /  /|- _/  //
+   \           /~~/ `-. |;;;;;..    ______.--~~ ~\  | |  ,~).)  /   | \~-==//
+     \      /~(   `-\  `-.`-;   /|    ))   __-####\ | |   (,   /|    |  \
+       \  /~.  `-.   `-.( `-.`~~ /##############.~~)| |   .   / |    |   ~\
+        \(   \    `-._ /~)_/|  /############.       | |      /  \     \_\  `\
+        ,~`\  `-._  / )#####|/############.   /     | |  _--~ _/ | .-~~____--.
+       ,.\  `-._  ~)~~ `################.           | | ((~>/~   \ (((. -_
+     ,.   `-.___)~~      `#############             | |           ~-_     ~\_
+ _.,.        ,.           `###########              | |            _-~-__    (
+|  `-.     ,.              `#########       \       | |          ((.-~~~-~_--~
+`\    `-.;.                  `#####.                | |           .     ((.-~~
+  `-._   )               \     |   |        .       |  \                 .
+      `~~  _/                  |    \               |   `---------------------
+        |/~                `.  |     \        .     |  O    __.---------------
+         |                   \ ;      \             |   _.-~
+         |                    |        |            |  /  |
+          |                   |         |           |/.  |
+      ";
+      }
   }
 }
