@@ -51,7 +51,7 @@ namespace Game
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine(myTitle.TitleArt());
+                Console.WriteLine(myTitle.titleArt());
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.WriteLine("\"Through Mud and Blood\"");
@@ -97,6 +97,7 @@ namespace Game
 
         public static void PlayGame()
         {
+            FightEncoutner fight = new FightEncoutner();
             Places place = new Places();
             Player player = new Player();
             Dialouge dial = new Dialouge(player);
@@ -165,6 +166,7 @@ namespace Game
             }
 
             string chosenCountry = ChooseCountry();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nYou have chosen to serve the " + chosenCountry);
             Console.ResetColor();
@@ -188,10 +190,10 @@ namespace Game
                 foreach (char c in text)
                 {
                     Console.Write(c);
-                    Thread.Sleep(2);
+                    Thread.Sleep(1);
                 }
                 Console.ResetColor();
-                Console.WriteLine(place.Jettaiah());
+                Console.WriteLine(place.jettaiah());
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("\n\nPress [Enter] ");
                 Console.ResetColor();
@@ -219,10 +221,10 @@ namespace Game
                 foreach (char c in text)
                 {
                     Console.Write(c);
-                    Thread.Sleep(2);
+                    Thread.Sleep(1);
                 }
                 Console.ResetColor();
-                Console.WriteLine(place.Yuandao());
+                Console.WriteLine(place.yuandao());
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("\n\nPress [Enter] ");
                 Console.ResetColor();
@@ -238,7 +240,7 @@ namespace Game
 
         Its castles stand as proud reminder of a bygone era, where knights uphold the code of chivalry with unwavering devotion.
 
-        At the heart of this kingdom lies the legend of Eardwulf, a hero whose name is known by every person who aspires to be righteous.
+        At the heart of this kingdom lies the legend of Creyn Eardwulf, a hero whose name is known by every person who aspires to be righteous.
 
         His epic tale spans the realms of myth and reality, from extracting the fabled Sword of Trinity from the ruins of ancient kingdoms to
 
@@ -252,10 +254,10 @@ namespace Game
                 foreach (char c in text)
                 {
                     Console.Write(c);
-                    Thread.Sleep(2);
+                    Thread.Sleep(1);
                 }
                 Console.ResetColor();
-                Console.WriteLine(place.Victornia());
+                Console.WriteLine(place.victornia());
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("\n\nPress [Enter] ");
                 Console.ResetColor();
@@ -319,6 +321,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
+                    //Thread.Sleep(500);
                 }
             }
 
@@ -335,17 +338,17 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
+                    //Thread.Sleep(500);
                 }
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("\n\nPress [Enter] ");
-            Console.ReadKey();
             Console.ResetColor();
             Console.Clear();
-            for (int i = 0; i < dial.DialogueOne().Length; i++)
+
+            for (int i = 0; i < dial.DialogueIntroTwo(chosenCountry).Length; i++)
             {
-                Console.WriteLine(dial.DialogueOne()[i] + "\n");
+                Console.WriteLine(dial.DialogueIntroTwo(chosenCountry)[i] + "\n");
 
                 if ((i + 1) % DialoguePerClear == 0)
                 {
@@ -355,7 +358,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-
+                //Thread.Sleep(500);
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -387,8 +390,48 @@ namespace Game
                 player.username = !string.IsNullOrWhiteSpace(input) ? char.ToUpper(input[0]) + input.Substring(1).ToLower() : string.Empty;
             }
 
-            Console.WriteLine($"\nI am {player.username}, Lord...");
+            for (int i = 0; i < dial.DialogueIntroThree(chosenCountry).Length; i++)
+            {
+                Console.WriteLine(dial.DialogueIntroThree(chosenCountry)[i] + "\n");
 
+                if ((i + 1) % DialoguePerClear == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("Press [Enter] to continue...");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                //Thread.Sleep(500);
+            }
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nBattle Encounter!");
+            Console.WriteLine($"So you're Captain {player.username}, prepare to die for my country!\n");
+            Console.WriteLine(fight.warrior());
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\nPress [Enter] >> ");
+            Console.ReadKey();
+            Console.ResetColor();
+            Console.Clear();
+            CombatProgram combat = new CombatProgram(player);
+            combat.StartGame();
+            Console.ReadKey();
+            Console.Clear();
+            for (int i = 0; i < dial.DialogueOne(chosenCountry).Length; i++)
+            {
+                Console.WriteLine(dial.DialogueOne(chosenCountry)[i] + "\n");
+
+                if ((i + 1) % DialoguePerClear == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("Press [Enter] to continue...");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                //Thread.Sleep(500);
+            }
 
             for (int i = 0; i < dial.DialogueTwo().Length; i++)
             {
@@ -402,22 +445,25 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-
+                //Thread.Sleep(500);
             }
-
-            CombatProgram combat = new CombatProgram(player);
-            combat.StartGame();
-            Console.ReadKey();
         }
         private static void Credits()
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\nwww.asciiart.eu - For provided ASCII arts");
+            Console.WriteLine("\n\"www.asciiart.eu\" - For provided ASCII arts");
+            Console.WriteLine("\n\"www.loveascii.com\" - Castle tower ASCII art");
+            Console.WriteLine("\n\"www.ascii.co.uk\" - Skull ASCII Art");
+            Console.WriteLine("\n(www.asciiart.eu) Randall Nortman, Tua Xiong - Warrior ASCII art");
+            Console.WriteLine("\n(www.asciiart.eu) Marcin Glinski - Castle ASCII art");
+            Console.WriteLine("\n(www.asciiart.eu) Glory Moon - Temple ASCII art");
             Console.WriteLine("\nDon Harl - Teaching C# Basics");
             Console.WriteLine("\nMichael Hadley (@mikewesthad) - Gamedev tutorials");
-            Console.ResetColor();
+            Console.WriteLine("\nDaFluffyPotato (@DaFluffyPotato) - Gamedev tutorials");
+            Console.Write("\n>> ");
             Console.ReadKey();
+            Console.ResetColor();
             Console.Clear(); 
         }
     }

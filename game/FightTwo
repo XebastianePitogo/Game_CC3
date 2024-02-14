@@ -148,7 +148,7 @@ public class CombatProgram
     private static void AttackPlayer(int targetLimb)
     {
         string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
-        int damage = new Random().Next(3, 7);
+        int damage = new Random().Next(4, 7);
 
         Console.WriteLine("----------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Red;
