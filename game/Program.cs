@@ -3,6 +3,8 @@ using System.Threading;
 using Dialogue;
 using AsciiArt;
 using Combat;
+using CombatTwo;
+
 //check
 namespace Game
 {
@@ -27,8 +29,8 @@ namespace Game
         {
             Console.ResetColor();
             Console.Clear();
-            Console.WriteLine("\nPlaying the game at full screen is advised for optimized gameplay.");
             Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nPlaying the game at full screen is advised for optimized gameplay.");
             Console.Write("\n\nPress [Enter] ");
             Console.ResetColor();
             Console.ReadKey();
@@ -52,17 +54,16 @@ namespace Game
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine(myTitle.titleArt());
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.WriteLine("\"Through Mud and Blood\"");
-                Console.WriteLine("a Turn-Based Dungeon Crawler Game");
-                Console.WriteLine("Made by Pitogo, Xebastiane\n\n");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("\t\t\"Through Mud and Blood\"");
+                Console.WriteLine("\t\ta Turn-Based Dungeon Crawler Game");
+                Console.WriteLine("\t\tMade by Pitogo, Xebastiane\n\n");
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("<1> >> Play <<\n");
-                Console.WriteLine("<2> >> Credits <<\n");
-                Console.WriteLine("<3> >> Quit <<\n");
-                Console.Write(">> ");
+                Console.WriteLine("\t\t<1> >> Play <<\n");
+                Console.WriteLine("\t\t<2> >> Credits <<\n");
+                Console.WriteLine("\t\t<3> >> Quit <<\n");
+                Console.Write("\t\t>> ");
                 Console.ResetColor();
                 string userInput = Console.ReadLine() ?? string.Empty;
 
@@ -100,8 +101,15 @@ namespace Game
             FightEncoutner fight = new FightEncoutner();
             Places place = new Places();
             Player player = new Player();
+            CombatProgram combat = new CombatProgram(player);
+            CombatProgramTwo combatTwo = new CombatProgramTwo(player);
             Dialouge dial = new Dialouge(player);
+            DialogueArt dialArt = new DialogueArt();
+            ///////////////////////////
 
+
+
+            /////////////////////////
             for (int i = 0; i < dial.DialogueZero().Length; i++)
             {
                 Console.WriteLine(dial.DialogueZero()[i] + "\n");
@@ -114,10 +122,10 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //
+                Thread.Sleep(500);
             }
-
-
+            Console.WriteLine(dialArt.hungry());
+            Console.ResetColor();
             for (int i = 0; i < dial.DialogueIntro().Length; i++)
             {
                 Console.WriteLine(dial.DialogueIntro()[i] + "\n");
@@ -130,7 +138,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
             }
 
             static string ChooseCountry()
@@ -164,7 +172,6 @@ namespace Game
                         return ChooseCountry();
                 }
             }
-
             string chosenCountry = ChooseCountry();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -181,11 +188,13 @@ namespace Game
 
         the harsh desert or masterful army strategies. At its birth once stood the formidable Warlord Ogenhei-Uzal,
 
-        whose visionary leadership raised an empire that stretched across continents, toppling numerous rival
-
-        sovereignties in its wake. Though his passing waned the empire's dominion,
-
-        the legacy of Ogenhei-Uzal endured, influence and legacy enduring through the passage of time..";
+        spreading fear at the sight of his wide smile with a glowing tooth. Whose visionary barbaric leadership raised an
+        
+        empire that stretched across continents, toppling numerous rival sovereignties in its wake. Though his passing 
+        
+        waned the empire's dominion, the legacy of Ogenhei-Uzal endured, influence and legacy enduring through the 
+        
+        passage of time through a story shared by parents to scare their children to not go out at night.";
 
                 foreach (char c in text)
                 {
@@ -213,11 +222,15 @@ namespace Game
 
         clever governance propelled them to the forefront of power struggles. One figure shines brightly—
 
-        a legend whose courage and bravery is feared among opposing forces. Han-Changgul, a warrior of raw resolve,
-
-        His heroic defense of the dynasty's main city against relentless assault and outnumbered by tenfold forces
-
-        has planted his story and respect among the commoners and higher-ranking individuals alike.";
+        a legend whose courage and bravery is feared among opposing forces. Han-Changgul, identifiable with his
+        
+        glowing ring and tall stature, a warrior of raw resolve, His heroic defense of the dynasty's main city 
+        
+        against relentless assault and outnumbered by tenfold forces has planted his story and respect among 
+        
+        the commoners and higher-ranking individuals alike. Accounts of his heroic defense are now sculpted, in
+        
+        the Palace walls.";
                 foreach (char c in text)
                 {
                     Console.Write(c);
@@ -242,15 +255,19 @@ namespace Game
 
         At the heart of this kingdom lies the legend of Creyn Eardwulf, a hero whose name is known by every person who aspires to be righteous.
 
-        His epic tale spans the realms of myth and reality, from extracting the fabled Sword of Trinity from the ruins of ancient kingdoms to
-
-        the liberation of Francia Burna, once a land deprived of hope. Now transformed into a sanctuary where individuals of diverse backgrounds
-
-        and statuses coexist in harmony, Francia Burna stands as a beacon of peace, shielded from the cruelty of war, plague, and injustice. 
-
-        Eardwulf embodies the virtues of courage, righteousness, and nobility. His deeds immortalized in the ballads sung by bards across the land.
-
-        Eardwulf stands as a ray of hope in a world beset by darkness, his tale weaving itself into the very fabric of Angevin Victornia's storied history.";
+        His epic tale spans the realms of myth and reality, from extracting the fabled Sword of Trinity from the ruins of ancient kingdoms, charging 
+        
+        towards enemy lines with a glowing necklace to the liberation of Francia Burna, once a land deprived of hope. Now transformed into a sanctuary 
+        
+        where individuals of diverse backgrounds and statuses coexist in harmony, Francia Burna stands as a beacon of peace, shielded from the cruelty
+        
+        of war, plague, and injustice. Eardwulf embodies the virtues of courage, righteousness, and nobility. His deeds immortalized in the ballads sung
+        
+        by bards across the land. Eardwulf stands as a ray of hope in a world beset by darkness, his tale sung by every Angevin Victornia's people
+         
+        during times of crisis.
+        
+        ";
                 foreach (char c in text)
                 {
                     Console.Write(c);
@@ -277,7 +294,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
             }
 
             static string ChooseDecisionOne()
@@ -321,7 +338,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    //Thread.Sleep(500);
+                    Thread.Sleep(500);
                 }
             }
 
@@ -338,7 +355,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    //Thread.Sleep(500);
+                    Thread.Sleep(500);
                 }
             }
 
@@ -358,7 +375,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -402,9 +419,24 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
             }
+            Console.WriteLine(dialArt.fortaare());
+            Console.ResetColor();
+            for (int i = 0; i < dial.DialogueIntroThreepart().Length; i++)
+            {
+                Console.WriteLine(dial.DialogueIntroThreepart()[i] + "\n");
 
+                if ((i + 1) % DialoguePerClear == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("Press [Enter] to continue...");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                Thread.Sleep(500);
+            }
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nBattle Encounter!");
             Console.WriteLine($"So you're Captain {player.username}, prepare to die for my country!\n");
@@ -414,10 +446,9 @@ namespace Game
             Console.ReadKey();
             Console.ResetColor();
             Console.Clear();
-            CombatProgram combat = new CombatProgram(player);
             combat.StartGame();
-            Console.ReadKey();
             Console.Clear();
+            Console.ResetColor();
             for (int i = 0; i < dial.DialogueOne(chosenCountry).Length; i++)
             {
                 Console.WriteLine(dial.DialogueOne(chosenCountry)[i] + "\n");
@@ -430,12 +461,12 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
             }
 
-            for (int i = 0; i < dial.DialogueTwo().Length; i++)
+            for (int i = 0; i < dial.DialogueTwo(chosenCountry).Length; i++)
             {
-                Console.WriteLine(dial.DialogueTwo()[i] + "\n");
+                Console.WriteLine(dial.DialogueTwo(chosenCountry)[i] + "\n");
 
                 if ((i + 1) % DialoguePerClear == 0)
                 {
@@ -445,8 +476,35 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+                Thread.Sleep(500);
             }
+            Console.WriteLine(dialArt.farm);
+            for (int i = 0; i < dial.DialogueThree(chosenCountry).Length; i++)
+            {
+                Console.WriteLine(dial.DialogueThree(chosenCountry)[i] + "\n");
+
+                if ((i + 1) % DialoguePerClear == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("Press [Enter] to continue...");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                Thread.Sleep(500);
+            }
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("\nBattle Encounter!");
+            Console.WriteLine($"You're the Traitor of Kin of Lionhearth and {chosenCountry}! {player.username}, in the name of mother {chosenCountry}, you shall be purged!\n");
+            Console.WriteLine(fight.knight());
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\nPress [Enter] >> ");
+            Console.ReadKey();
+            Console.ResetColor();
+            Console.Clear();
+            combatTwo.StartGameTwo(chosenCountry);
+            Console.Clear();
+            Console.ResetColor();
         }
         private static void Credits()
         {
@@ -455,7 +513,7 @@ namespace Game
             Console.WriteLine("\n\"www.asciiart.eu\" - For provided ASCII arts");
             Console.WriteLine("\n\"www.loveascii.com\" - Castle tower ASCII art");
             Console.WriteLine("\n\"www.ascii.co.uk\" - Skull ASCII Art");
-            Console.WriteLine("\n(www.asciiart.eu) Randall Nortman, Tua Xiong - Warrior ASCII art");
+            Console.WriteLine("\n(www.asciiart.eu) Tua Xiong - Knight, Warrior ASCII art");
             Console.WriteLine("\n(www.asciiart.eu) Marcin Glinski - Castle ASCII art");
             Console.WriteLine("\n(www.asciiart.eu) Glory Moon - Temple ASCII art");
             Console.WriteLine("\nDon Harl - Teaching C# Basics");
