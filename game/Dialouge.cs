@@ -1,10 +1,12 @@
 using System;
 using Game;
+using AsciiArt;
 
 namespace Dialogue
 {
     public class Dialouge
     {
+        Places place = new Places();
         public Player player;
         public Dialouge(Player player)
         {
@@ -19,7 +21,7 @@ namespace Dialogue
             "Yet, the monumental narratives that sought to reveal the truth remained hidden, the scholars are also forgotten alike the tales of creation." ,
             "As countless millenniums go on, humanity found itself ensnared in the unrelenting grip of conflicting ideologies." ,
             "Each faction defended its beliefs with glory, blinding themselves to the obscured threads of a more cold harsh reality." ,
-            "Amid the chaos of wars, a handful of fortunate mortals stumbled upon the powers of the 'Old-Gods.'" ,
+            "Amid the chaos of wars, a handful of fortunate mortals stumbled thorugh glowing artifacts upon the powers of the 'Old-Gods'.",
             "These chosen few reborn, emerging as the revered 'Age-Gods,' destined to reshape the destiny of mankind." ,
             "Much like the primal discovery of fire, the Age-Gods ignited a magnificent era of advancement, fostering unprecedented growth and enlightenment." ,
             "With inherited passing generations of religion, culture, and beliefs now weaved into millions of souls." ,
@@ -28,6 +30,7 @@ namespace Dialogue
             "In the ravaged land of Pangeoria, three leading empires pursue on, each competing for supremacy over the fractured world." ,
             "The Jahanid Jettaiah Sovereignty, the Rising Yuandao Dynasty, and the Angevin Victornia Empire.",
             "Pangeoria, the war-torn world that bore witness to the acts of Age-Gods, now stood at the next destined coming of the new Age-God every three hundred thirty-three years now at the peak of the Thousand-years war." ,
+            "...",
             };
         }
 
@@ -174,8 +177,8 @@ namespace Dialogue
             $"\n\"It's {player.username}...\"",
             $"\"Well hello {player.username}, I am Lysander.\" With a gentle smile.",
             "I took his reaching hands and then.",
-            "I found myself accepting to my own shallow proposition and joining Lysander and his band, becoming the captain {player.username} over the years I became a member of the Kin of LionHearth. It was a significant shift, the first step in a journey where everything I once owned became his.",
-            "Gradually gaining respect for him. Beyond his heroic appearance lay an attitude of unwavering calmness and unshakeable confidence, traits that commanded admiration and loyalty from those around him.",
+            "I found myself accepting to my own shallow proposition and joining Lysander and his band, becoming the captain over the years I became a member of the Kin of LionHearth. It was a significant shift, the first step in a journey where everything I once owned became his.",
+            "Gradually gaining respect for him over five years. Everyone within the band became a part of my family.",
             $"Under Lysander's leadership, our band grew more, all reasons of mercenaries joining was to see Lysander's achieving his dream. It was also this time our band earning recognition from the ruler of {reinforcementCountry}. Promises of handsome rewards awaited us, if our success in leading a critical battle that would determine the fate of our country's control over the war.",
             "Before the day of the great battle, Lysander confided in me, his voice weighted with a solemnity. He recounted a haunting memory from his past, a moment etched in his mind where he held a cold child amidst the aftermath of war, a child soldier whose innocence clashed starkly with the brutality of the world.",
             "This child, a child whose name was not recognized by Lysander, was timid and shy, yet harboring aspirations to be like Lysander, stirred something deep within him. In the lifeless corpse of the child, Lysander saw a reflection of his own past self, filled with dreams and aspirations that now lay cold and silent upon the battlefield, like the ignition of dreams just to be taken out with a strong gust of wind.",
@@ -183,9 +186,18 @@ namespace Dialogue
             "Yet, as he held the cold nameless child in his arms. He understood that his journey, paved with the bodies of fallen soldiers, even that of the innocent child, was a path leading him towards the fulfillment of his dream – the liberation of people across the world from the shackles of war.",
             "He wanted to kill war, the very concept and cause of war. In it's roots that he intently will pull out.",
             "Lysander embraced his destiny, knowing that each sacrifice, each loss, was a step closer to realizing his vision of a better world. I couldn't help but feel a profound sense of purpose, knowing that we fought not only for victory on the battlefield but for the hope of a brighter future that Lysander dared to envision.",
-            "Hundred\nThousands will die\nfor him.",
+            "Hundred",
+            "Thousands",
+            "Will die for him.",
             $"\"You'd understand that {player.username}, right?\"",
-            "Although, I would not like being killed for his dream. I wanted to see him achieve his dream.",
+            "\"Although, I would not like being killed for his dream. I wanted to see him achieve his dream...\", I thought.",
+            };
+        }
+
+        public string[] DialogueIntroThreepart()
+        {
+            return new string[]
+            {
             "The day after, we prepared that might be the our last battle.",
             "Our band settles in a harsh desert of Fortaare that connected the three great factions split into three clusters. Among them, I found myself leading the cavalry for the backshot flank.",
             "As the clash of our forces and the enemies' drew near, I positioned my cavalry strategically, waiting for the perfect moment to strike.",
@@ -196,7 +208,7 @@ namespace Dialogue
             "In my operation, the enemy's lines buckled under the ferocity of our assault, they found themselves confused and surrounded on all sides. Slowly but surely taking them out.",
             "I observed that Lysander's supposed flank was suddenly pierced by an incoming cavalry charge of spearmen, shattering our lines and wreak havoc among our forces.",
             "Without hesitation, I led my squad towards Lysander's embattled position. We charged with intent on intercepting the spearmen on the sidelines.",
-            "And I was led to their general...",
+            "And I was led to their general, Asketill...",
             };
         }
 
@@ -223,6 +235,8 @@ namespace Dialogue
             "Your assistance for Lysander greatly affected the flow of battle.",
             "During the chaos, however, a moment of peril emerged when an unfamiliar child soldier from our side found himself about to be slain. However, Lysander cushoined the blow and let his guard down in the process, taking a grevious wound in the process. I stabbed the assailant with my sword before I even had the chance to gather what happened.",
             "\"It's not fatal, stupid.\"\nLysander reassured me, with a confident smirk despite the blood that flowed from his nose and lips.",
+            "And I saw an unfamliar bracelet from Lysander's arm glowed...", 
+            "It was the first time I saw Lysander using an accessory.",
             "The sound of our trumpet surrounded the air, Solidifying our victory. With hearts full of pride and relief, we stood victorious on the scorching battlefield of Fortaare.",
             "Your band clutched the great struggle in the burning land of Fortaare.",
             "Despite the losses we sustained during the battle, we cried out in our hearts to celebrate our victory",
@@ -238,7 +252,7 @@ namespace Dialogue
             "....",
             "..??",
             "Huh????",
-            "\t\"Something's off\"Were the words you muttered when you catched a glimpse of his face.",
+            "\"Something's off\"\nWere the words you muttered when you catched a glimpse of his face.",
             "You noticed.",
             "You noticed from his face something odd.",
             "Within that smile lies the hero you once pledged to sacrifice everything for",
@@ -253,18 +267,18 @@ namespace Dialogue
             "\t\"AHAHAHAHAH- JAA!!\"",
             "\t\"~~YOHOHOHOHOHOHO!!!!\"",
             "\t\"WHAT ARE YOU PEASANTS LAUGHING AT FOR?!\"",
-            $"\t\"Quit making a spectacle of both the Captain {player.username} and yourself. We all saw you high-tailing it out of there, tail between your legs, the moment you laid eyes on the towering enemy general!\tAhaha!\"",
+            $"\t\"Quit making a spectacle of both Captain {player.username} and yourself. We all saw you high-tailing it out of there, tail between your legs, the moment you laid eyes on the towering enemy general!\tAhaha!\"",
             "\t\"Oh, come on now! You remember that time when you tucked yourself under a dead horse, playing it safe? I mean, seriously? That was the definition of spineless right there!\"",
             "The now proud man finds his knees caving to the ground, his face as red as a tomato.",
-            "While you can't help but feel a slight remorse and empathy for the man's self-induced predicament,a faint call of your name reaches your ears from a nearby tent..",
+            "While you can't help but feel a slight remorse and empathy for Chazos' self-induced predicament,a faint call of your name reaches your ears from a nearby tent..",
             "You spot the newly recruited child soldier, Eòghann, who dreams of to be just like Lysander, albeit currently tasked with the duty of keeping watch over the squadron's food ration to fend off rats and pests.",
             "Familiarity strikes into you.",
             "\"Weren't you the one who Lysander saved?\", you said.",
             "\"I'm sorry! I deeply aopologize for Sir Lysander, do anything you want to me, I'll do the dishes, salt the preserves, laundry your clothes. Just don't remove me from the band please, it was my dream to get here!\"",
             "\"It's nothing, it's good you lived especially with your inexperience, now why would you call me again?\"",
             $"\t\"Captain {player.username}! Lysander called for you with a Baron from the royal place that would like to!!\"",
-            "\t\"Keep your mouth SHUT, you rustic pretendant cannon fodder! You don't know who's listening among our ranks! YOU WILL NEVER AMOUNT TO ANYTHING EVEN ABOVE A RAT\"The Baron's loud voice startles the whole camp, making a rather pathetic attempt to initiate a quiet confidential meeting.",
-            "\t\"Watch your mouth! you may be of high ranking in the palace. But here- you're weaker than a squire on a diet of water and breadcrumbs while you shamelessly gobble down load of horse\texcrement with that huge and loud mouth of yours.\"",
+            "\t\"Keep your mouth SHUT, you countryside cannon fodder! You don't know who's listening among our ranks! YOU WILL NEVER AMOUNT TO ANYTHING EVEN ABOVE A RAT\"The Baron's loud voice startles the whole camp, making a rather pathetic attempt to initiate a quiet confidential meeting.",
+            "\t\"Watch your mouth! you may be of high ranking in the palace. But here- you're weaker than a squire on a diet of water and breadcrumbs while you shamelessly gobble down load of horse excrement with that huge and loud mouth of yours.\"",
             "You shouted in frustration, leaving the baron in a state of disbelief.",
             "\tAs the situation gets any more heated, Lysander spoke, \"I apologize for the behavior of my soldiers; I take full responsibility. Sir Baron, I ask for your forgiveness.\"",
             "While forcefully making your head lower and legs kneeling before the presence of the baron.",
@@ -273,9 +287,8 @@ namespace Dialogue
             };
         }
 
-        public string[] DialogueTwo()
+        public string[] DialogueTwo(string chosenCountry)
         {
-
             return new string[]
             {
             $"Well hello {player.username}, This is Lord Maltese, Nephew of the Grand Ruler.",
@@ -285,39 +298,87 @@ namespace Dialogue
             "\"Despite my inner conflicts, I resolved to accept's Lysanders invitation, knowing that even in uncertainty, there lay the potential for a new purspose bound to happen.\"",
             "\"The week after our meeting, as the festival in our honor commenced and the cheers of the crowd filled the air, I couldn't shake the nagging feeling of emptiness that stayed at my soul. Even the uproars and deafening applause, I felt a sense of disconnect, as if I were merely a bystander in my own life.\"",
             "\"Soon after, Lysander and I found ourselves in the private chambers of the ruler, waiting his propostion.\"",
-            "\"And then, the ruler proposed one thing that would change the course of our destinies.\"",
-            "Disband the Kin of LionHearth and join the faction's private army, my army.",
+            "And then, the ruler proposed one thing that would change the course of our destinies.",
+            "\"Disband the Kin of LionHearth and join the faction's private army, my army, Iron Dragons.\"",
             "\"My Majesty, I kindly decline your gracious offer.\" Lysander responded.",
             "Murmurs that circled through the assembly. With the ruler's eye raised- Lysander said, \"My group was essential for the war and I would like to stay connected to them even after.\"",
             "The ruler, though perhaps disappointed by Lysander's unexpected response, stayed silent. It was a rare sight to witness Lysander pass up an opportunity that promised to inch him ever closer to his dreams.",
             "With a respectful tone, Lysander turned to the king. \"Permission to exit the castle, your Majesty?\" he requested.",
             "Outside the chambers and whispered debates, I asked about Lysander's decision. Why had he chosen to defy the king's invitation, despite the presentation of prestige and power it held.",
             "He turned to me and said \"I would still find a way without losing anymore of you guys.\", while smiling.",
-            "Because",
-            "After all it's a kin, even through mud and blood.",
+            "\"Because\"",
+            "\"After all it's a kin, even through mud and blood.\"",
             "\"Well, that sucks now that you are here stuck eating scraps and bread with us.\", I jokingly said.",
             "As our laughs filled throughout the dark alleyway.",
             "Night came and before I had to go inside my tent, Lysander called out to me.",
             $"\"I know something is going on your mind {player.username}, Ask me questions to settle down things.\"",
             "\"Why would you put yourself in such a perilous situation for the child soldier?\"",
             "\"You mean that boy, Eòghann?\"",
-            "During the battle, my focus would always point for the child as I always remember my young self to him- like the child I spoke to you at the past",
-            "And even though I felt to ignore him, my legs would move on its own. I found myself harming myself for someone, risking my life and dream without without thinking anything.",
-            "Almost losing everything I worked hard for.",
-            "And yet the strange acceptance of the possibility of meeting my end in that very moment.",
-            "I would feel content dying there.",
+            "\"During the battle, my focus would always point for the child as I always remember my young self to him- like the child I spoke to you at the past\"",
+            "\"And even though I felt to ignore him, my legs would move on its own. I found myself harming myself for someone, risking my life and dream without without thinking anything.\"",
+            "\"Almost losing everything I worked hard for.\"",
+            "\"And yet the strange acceptance of the possibility of meeting my end in that very moment.\"",
+            "\"I would feel content dying there.\"",
             "\"Even along your dream?\", I responded",
             "Yes, I forgot about it that time.",
             "I am not sure of myself, my dream and the \"kin\" of the band always would clash altogether that it aches my head, Should I selfishly chase my aspirations, knowing it may bring suffering to those around me, or should I sacrifice my own ambitions even though it will linger on my heart even at my last days of living peacefully?",
             "Have you ever thought that people dreams have no end? Even if the person willingly abandons his dreams. Deep inside their heart, it still lingers. They might curse and deny it yet it would still be there...",
             "I wonder, do dreams perish alongside the individuals who carry them, or do they transcend mortality, living on long after we've departed? Such as the likes of Uzal, Changgul, and Eardwulf, have they let their dreams known to every person they knew, or did they abandon them in the face of impending mortality?",
-            $"\"{player.username}, what do you think?, should I go on?\"",
+            "Afetr an akward silence, Lysander spoke.",
+            $"\"{player.username}, you've noticed right? The bracelet I'm wearing right now in my right hand ever since you've joined right?\"",
+            "\"I have no idea what it does or anything but I have found it after slaying a group of aggressive nomads jsut before the day at .\"",
+            "\"Their clothing and appearance.\"",
+            "\"None of it made any sense as they do not look like they came from any country at all.\"",
+            "\"I have no idea what it does or anything but I have found it after slaying a group of aggressive nomads jsut before the day we engaged at the battlefield in Fortaare.\"",
+            "\"But something more stange was their language, it just as if they came from another realm. It was fluent and rich it had to be another language- in my days as a mercenary travelling to different places. I have not EVER heard a single language like that...\"",
+            "\"Their bracelet, its emanating otherwordly and I have used it and have not noticed anything changing something within or around me.\"",
+            "\"I tried many times to remove it but my deep conscience tells me not to\"",
+            "\"Maybe this has a use, and something needs to be done.\"",
+            "\"What do you think should I do with this bracelet, should I pursue my dreams even further?\"",
             "Taking a brief pause- I finally said",
             "I.",
             "Don't..",
             "Know...",
             "\"Maybe its the food scraps being rotten or us getting tired from the war, we should get some sleep.\", Lysander said.",
             "\"That night. No questions are answered, just more questions.\"",
+            "The day dawned like any other, yet it felt different, a yearned for a purpose while looking up to the top canopy from below inside tent. You had never been one for smart, but you possessed hand-skills, in labor and physical chores. And so, on that fateful morning, you made a decision- to become a farmer, to seek solace and purpose in the simplicity of rural life.",
+            "Help a lot of people with your products and harvest.",
+            "Especially in the impoverished regions where war left its scars among the land and people.",
+            "It was never a modest dream but it was sincere",
+            "Turning to Lysander, you confided in him.",
+            "\"Lysander, This has been through my mind many times. I've wanted to go look from what I can be capable of from just being a soldier.\"",
+            "\"and?\",\nLysander spoke confusingly.",
+            "\"Lysander, I decided to leave the band to look for my own purpose\"",
+            "\"And leave me behind?\"\nLysander spoke in a cold tone.",
+            "\"To leave the band is to find a purpose in life. I have slain many lives with my sword, and now it is time to leave it all behind and atone for all of the sins I committed.\"",
+            "\"I never had any other things in life, but with the rewards after the war, I could start a farm of my own.\"",
+            "\"And die alone?\" Lysander asked.",
+            $"\"I don't intend to live and die alone; I might probably meet new people, but it might be hard to contact all of you, especially with the recovering economy of my homeland, {chosenCountry}.\"",
+            "\"As you speak of dreams and sacrifices yesterday and the past.\"",
+            "\"I am prepared to leave the band, yet the memories we shared will forever be in my heart.\"",
+            "\"If you choose to bear the burden of betrayal, then let it be decided by the hands that once welcomed in my band.\"\n,Lysander responded.",
+            "\"Incriminate me and brand me as a traitor of the band; then look at me that way, but it would never kill the memories we had over the years.\",\nI responded back.",
+            "\"Raise your sword and challenge me again.\",\nLysander spoke.",
+            "In my thoughts I talked to him back,\"If I could never achieve my dream standing by your side, then who would I be- I am grateful to you and the members no matter what.\"",
+            "Suddenly, Eoghann's voice stopped the awkward silence. \"Stop! This is senseless!\"",
+            "Chazos intervened, pulling the child away from the fray. \"Let them settle this on their own terms.\", he urged.",
+            $"Eoghann's plead\n\"Lysander will prevail. He's our leader. Once {player.username} gets defeated by Lysander, everything will return to normal, won't it?\"",
+            "Lysander thought\n\"Everything I had worked hard for, I won't let it slip from my hands.\"",
+            "Then, a lone leaf fell to the ground that started the fight.",
+            "I was met by Lysander's charge.",
+            "Then I pierced his leg.",
+            "\"As Lysander fell, incapacitated by the attack, I turned away from the scene, ignoring Eoghann's cries to return. With each step, I left behind the echoes of the past.\"",
+            "\"I won't look back.\"",
+            "I continued to my guideless path towards an uncertain future...",
+            };
+        }
+        public string[] DialogueThree(string chosenCountry)
+        {
+            return new string[]
+            {
+            "...",
+            "\"How long has it been?\"",
+            $"{chosenCountry}...",
             "",
             };
         }

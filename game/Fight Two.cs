@@ -2,50 +2,50 @@ using System;
 using AsciiArt;
 using Game;
 
-namespace Combat;
-public class CombatProgram
+namespace CombatTwo;
+public class CombatProgramTwo
 {
     Death deathScene = new Death();
     Win winscene = new Win();
     private Player player;
 
-    public int playerHP = 100;
-    public int playerLeftHand = 100;
-    public int playerRightHand = 100;
+    public int playerHP = 400;
+    public int playerLeftHand = 200;
+    public int playerRightHand = 200;
 
-    public int asketillHP = 100;
-    public int asketillLeftHand = 100;
-    public int asketillRightHand = 100;
+    public int knightHP = 400;
+    public int knightLeftHand = 200;
+    public int knightRightHand = 200;
 
     public bool playerLeftHandLost = false;
     public bool playerRightHandLost = false;
 
-    public bool asketillLeftHandLost = false;
-    public bool asketillRightHandLost = false;
+    public bool knightLeftHandLost = false;
+    public bool knightRightHandLost = false;
 
-    public CombatProgram(Player player)
+    public CombatProgramTwo(Player player)
     {
         this.player = player;
     }
 
-    public void StartGame()
+    public void StartGameTwo(string chosenCountry)
     {
         FightEncoutner fight = new FightEncoutner();
-        CombatProgram combat = new CombatProgram(player);
+        CombatProgramTwo combatTwo = new CombatProgramTwo(player);
         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine("You find yourself unable to run, and the only way out is to... spill blood.");
 
-        while (playerHP > 0 && asketillHP > 0)
+        while (playerHP > 0 && knightHP > 0)
         {
             DisplayStats();
             PlayerTurn();
-            if (asketillHP <= 0 && asketillLeftHand <= 0 && asketillRightHand <= 0)
+            if (knightHP <= 0 && knightLeftHand <= 0 && knightRightHand <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nAsketill Main HP fell to <0>!");
+                Console.WriteLine("\nGunterius the Knight Main HP fell to <0>!");
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\nAsketill the Giant fell in battle, Such a huge target-dummy to hit.");
-                Console.WriteLine("\nYou stand tall and won in the aftermath of the battle, you are granted another day to endure the relentless suffering that awaits for your destiny... ");
+                Console.WriteLine("\nGunterius the Knight fell in battle, you felt a sense of pity for his blinded chivalrous act, yet it had to be done.");
+                Console.WriteLine("\nYou stand tall and won in the aftermath of the battle, You move closer to your inevitable suffering that lies in your destiny... ");
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("\n" + winscene.winart());
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -55,14 +55,14 @@ public class CombatProgram
                 break;
             }
 
-            asketillTurn();
+            knightTurn();
 
             if (playerHP <= 0 && playerLeftHand <= 0 && playerRightHand <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\"That little twig didn't stood a chance!\"");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n\"May your soul find solace in heaven...\"");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nYou succumbed during battle, You have finally embraced bliss after enduring the prolonged suffering of battle...");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -79,17 +79,16 @@ public class CombatProgram
 
                 if (userTry == "y")
                 {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\nBattle Encounter!");
-                    Console.WriteLine($"So you're Captain {player.username}, prepare to die for my country!\n");
-                    Console.WriteLine(fight.warrior());
+                    Console.WriteLine($"You're the Traitor in the band of Kin of Lionhearth and {chosenCountry}! {player.username}, in the name of God and Iron Dragons, you shall be purged!\n");
+                    Console.WriteLine(fight.knight());
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("\nPress [Enter] >> ");
                     Console.ReadKey();
                     Console.ResetColor();
                     Console.Clear();
-                    combat.StartGame();
+                    combatTwo.StartGameTwo(chosenCountry);
                     Console.Clear();
                     Console.ResetColor();
                 }
@@ -110,11 +109,11 @@ public class CombatProgram
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("\n================================================================================");
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine("\t"+player.username + $"'s Main HP: <{playerHP}>     |   Left Limb: <{playerLeftHand}>   |   Right Limb: <{playerRightHand}>");
+        Console.WriteLine(player.username + $"'s Main HP: <{playerHP}>     |   Left Limb: <{playerLeftHand}>   |   Right Limb: <{playerRightHand}>");
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("--------------------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"\tAsketill the Giant's Main HP: <{asketillHP}>     |   Left Limb: <{asketillLeftHand}>   |   Right Limb: <{asketillRightHand}>");
+        Console.WriteLine($"Gunterius the Knight's Main HP: <{knightHP}>     |   Left Limb: <{knightLeftHand}>   |   Right Limb: <{knightRightHand}>");
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("================================================================================");
         Console.ResetColor();
@@ -150,7 +149,7 @@ public class CombatProgram
 
             if ((targetLimb == 1) || (targetLimb == 2))
             {
-                Attackasketill(targetLimb);
+                Attackknight(targetLimb);
             }
 
         }
@@ -160,13 +159,13 @@ public class CombatProgram
         }
     }
 
-    void asketillTurn()
+    void knightTurn()
     {
         Random random = new Random();
 
-        if (asketillLeftHandLost && asketillRightHandLost)
+        if (knightLeftHandLost && knightRightHandLost)
         {
-            asketillDefend();
+            knightDefend();
             return;
         }
         if (playerLeftHandLost)
@@ -188,11 +187,11 @@ public class CombatProgram
     private void AttackPlayer(int targetLimb)
     {
         string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
-        int damage = new Random().Next(10, 20);
+        int damage = new Random().Next(25, 30);
 
         Console.WriteLine("----------------------------------------------------------------------");
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"\nAsketill attacks your <{limb}> and deals <{damage}> damage!\n");
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+        Console.WriteLine($"\nGunterius the Knight attacks your <{limb}> and deals <{damage}> damage!\n");
         Console.ResetColor();
         Console.WriteLine("----------------------------------------------------------------------");
         UpdatePlayerHP();
@@ -228,42 +227,42 @@ public class CombatProgram
     }
 
 
-    private void Attackasketill(int targetLimb)
+    private void Attackknight(int targetLimb)
     {
         string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
-        int damage = new Random().Next(12, 22);
+        int damage = new Random().Next(30, 35);
         Console.WriteLine("\n----------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine($"\nYou attack Asketill's <{limb}> and deal <{damage}> damage!\n");
+        Console.WriteLine($"\nYou attack the Gunterius the Knight's <{limb}> and deal <{damage}> damage!\n");
         Console.ResetColor();
-        UpdateasketillHP();
+        UpdateknightHP();
 
         if (targetLimb == 1)
         {
-            asketillLeftHand = Math.Max(0, asketillLeftHand - damage);
-            if (asketillLeftHand == 0 && !asketillLeftHandLost)
+            knightLeftHand = Math.Max(0, knightLeftHand - damage);
+            if (knightLeftHand == 0 && !knightLeftHandLost)
             {
-                asketillLeftHandLost = true;
+                knightLeftHandLost = true;
                 Console.WriteLine("----------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nAsketill's left hand is now fatally damaged. Damage reduction of 25% will be applied on his attacks.\n");
+                Console.WriteLine($"\nGunterius the Knight's left hand is now fatally damaged. Damage reduction of 25% will be applied on its attacks.\n");
                 Console.ResetColor();
-                damage *= (int)(damage * 0.75);
-                UpdateasketillHP();
+                damage = (int)(damage * 0.75);
+                UpdateknightHP();
             }
         }
         else if (targetLimb == 2)
         {
-            asketillRightHand = Math.Max(0, asketillRightHand - damage);
-            if (asketillRightHand == 0 && !asketillRightHandLost)
+            knightRightHand = Math.Max(0, knightRightHand - damage);
+            if (knightRightHand == 0 && !knightRightHandLost)
             {
-                asketillRightHandLost = true;
+                knightRightHandLost = true;
                 Console.WriteLine("----------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nAsketill's right hand is now fatally damaged. Damage reduction of 25% will be applied on his attacks.\n");
+                Console.WriteLine($"\nGunterius the Knight's right hand is now fatally damaged. Damage reduction of 25% will be applied on its attacks.\n");
                 Console.ResetColor();
                 damage = (int)(damage * 0.75);
-                UpdateasketillHP();
+                UpdateknightHP();
             }
         }
     }
@@ -278,22 +277,22 @@ public class CombatProgram
 
     }
 
-    private static void asketillDefend()
+    private static void knightDefend()
     {
         Console.WriteLine("----------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\nAsketill chose to defend. Asketill takes reduced damage on the next attack.");
+        Console.WriteLine("\nGunterius the Knight's chose to defend. The Gunterius the Knight's  takes reduced damage on the next attack.");
         Console.ResetColor();
     }
 
     void UpdatePlayerHP()
     {
-        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 : asketillRightHand);
+        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 : knightRightHand);
     }
 
-    void UpdateasketillHP()
+    void UpdateknightHP()
     {
-        asketillHP = (asketillLeftHandLost ? 0 : asketillLeftHand) + (asketillRightHandLost ? 0 : asketillRightHand);
+        knightHP = (knightLeftHandLost ? 0 : knightLeftHand) + (knightRightHandLost ? 0 : knightRightHand);
     }
 
     static int GetValidInput(int minValue, int maxValue)
