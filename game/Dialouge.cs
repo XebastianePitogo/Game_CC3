@@ -15,13 +15,13 @@ namespace Dialogue
         public string[] DialogueZero()
         {
             return new string[]
-            {
+            {   
             "In the abysmal corridors of time, the origins of the world were shrouded in mystery, veiled by the impenetrable fog of ancient history." ,
-            "Countless scholars across the globe delved into the hole of creation, weaving tales that spun the definition of reality, history, and the world itself." ,
+            "Man from the dawn of time have been acting upon on pure instincts and ever since then, Society and culture were born. And through the born of Society comes the beliefs and ideologies with it, molding the cohesion of men through \"Morality\"- yet are still tempted by their own instincts. Countless scholars across the globe delved into the hole of creation, researching ancient references that untomb the definition of reality, history, and the world itself." ,
             "Yet, the monumental narratives that sought to reveal the truth remained hidden, the scholars are also forgotten alike the tales of creation." ,
             "As countless millenniums go on, humanity found itself ensnared in the unrelenting grip of conflicting ideologies." ,
             "Each faction defended its beliefs with glory, blinding themselves to the obscured threads of a more cold harsh reality." ,
-            "Amid the chaos of wars, a handful of fortunate mortals stumbled thorugh glowing artifacts upon the powers of the 'Old-Gods'.",
+            "Amid the chaos of wars, a handful of fortunate mortals stumbled through glowing stone artifacts upon the powers of the 'Old-Gods'.",
             "These chosen few reborn, emerging as the revered 'Age-Gods,' destined to reshape the destiny of mankind." ,
             "Much like the primal discovery of fire, the Age-Gods ignited a magnificent era of advancement, fostering unprecedented growth and enlightenment." ,
             "With inherited passing generations of religion, culture, and beliefs now weaved into millions of souls." ,
@@ -30,7 +30,6 @@ namespace Dialogue
             "In the ravaged land of Pangeoria, three leading empires pursue on, each competing for supremacy over the fractured world." ,
             "The Jahanid Jettaiah Sovereignty, the Rising Yuandao Dynasty, and the Angevin Victornia Empire.",
             "Pangeoria, the war-torn world that bore witness to the acts of Age-Gods, now stood at the next destined coming of the new Age-God every three hundred thirty-three years now at the peak of the Thousand-years war." ,
-            "...",
             };
         }
 
@@ -138,7 +137,7 @@ namespace Dialogue
             return new string[]
             {
             $"Going back to the camp, you saw your fellow mercenaries abandoning their posts, while another mercenary group with different armours each person arrives as reinforcement for the {reinforcementCountry}.",
-            "\"RUN!!~~, it's the Kin of LionHearth\nOver There!, it's the band's leader, Lysander!!\"\n,As they scrambled away from a rather unexpecting sight, A man of long almost goldish blonde hair and a face of a princess, He does not look from Jettaiah, Yuandao or even Victornia- a unqiue appearance indeed, almsot like he is not a part of this world.\"",
+            "\"RUN!!~~, it's the Kin of LionHearth\nOver There!, it's the band's leader, Lysander!!\"\n,As they scrambled away from a rather unexpecting sight, A man of long almost goldish blonde hair and a face of a princess, He does not look from Jettaiah, Yuandao or even Victornia- a unqiue appearance indeed, almost like he is a figure from legends.\"",
             "Lysander?",
             "Startled by the fact that a group of mercenaries feared at the mere mention of his name, I couldn't help but notice the silent aura of confidence emanating from Lysander. His posture, confidence and demeanor says it all, already instilling unease among many of the mercenaries around.",
             "\"Avoiding confrontation was the wisest course of action, I made to depart the area, only to be confronted by a member of the Kin of LionHearth, intent on plundering my belongings. As their sword bore down towards me, I dodged with a quick step, driving my blade into their leg. Yet, before I could fully process the turn of events, an arrow pierced my shoulder.\"",
@@ -175,8 +174,7 @@ namespace Dialogue
             return new string[]
             {
             $"\n\"It's {player.username}...\"",
-            $"\"Well hello {player.username}, I am Lysander.\" With a gentle smile.",
-            "I took his reaching hands and then.",
+            $"\"Well hello {player.username}, I am Lysander.\" With a gentle smil.\nI took his reaching hands and then.",
             "I found myself accepting to my own shallow proposition and joining Lysander and his band, becoming the captain over the years I became a member of the Kin of LionHearth. It was a significant shift, the first step in a journey where everything I once owned became his.",
             "Gradually gaining respect for him over five years. Everyone within the band became a part of my family.",
             $"Under Lysander's leadership, our band grew more, all reasons of mercenaries joining was to see Lysander's achieving his dream. It was also this time our band earning recognition from the ruler of {reinforcementCountry}. Promises of handsome rewards awaited us, if our success in leading a critical battle that would determine the fate of our country's control over the war.",
@@ -189,8 +187,7 @@ namespace Dialogue
             "Hundred",
             "Thousands",
             "Will die for him.",
-            $"\"You'd understand that {player.username}, right?\"",
-            "\"Although, I would not like being killed for his dream. I wanted to see him achieve his dream...\", I thought.",
+            $"\"You'd understand that {player.username}, right?\"\nAlthough, I would not like being killed for his dream. I wanted to see him achieve his dream...\", I thought",
             };
         }
 
@@ -284,14 +281,7 @@ namespace Dialogue
             "While forcefully making your head lower and legs kneeling before the presence of the baron.",
             "\t\"At least the leader of these recruited barbaric mercenaries displays a degree of respect.\"The Baron berated while shaming the leader.",
             $"\t\"Captain {player.username}, I believe you have something to share. Perhaps a courteous introduction, starting with your name?\"Lysander whispered next to your ear.\"",
-            };
-        }
-
-        public string[] DialogueTwo(string chosenCountry)
-        {
-            return new string[]
-            {
-            $"Well hello {player.username}, This is Lord Maltese, Nephew of the Grand Ruler.",
+                        $"Well hello {player.username}, This is Lord Maltese, Nephew of the Grand Ruler.",
             "\"And he's here to deliver a message\"",
             "\"To which he invites me and my chosen assistant for a position of higher status, perhaps you knew why I called you here now.\"",
             "\"I was happy but couldn't help but feel a surge of conflicting emotions. For so long, the swinging this sword had been my every thought and action- a purpose. But now, with the war done and no threats anymore, I found myself at a crossroads, unsure of where my path would lead next.\"",
@@ -341,7 +331,7 @@ namespace Dialogue
             "Know...",
             "\"Maybe its the food scraps being rotten or us getting tired from the war, we should get some sleep.\", Lysander said.",
             "\"That night. No questions are answered, just more questions.\"",
-            "The day dawned like any other, yet it felt different, a yearned for a purpose while looking up to the top canopy from below inside tent. You had never been one for smart, but you possessed hand-skills, in labor and physical chores. And so, on that fateful morning, you made a decision- to become a farmer, to seek solace and purpose in the simplicity of rural life.",
+            "The day dawned like any other, yet it felt different, a yearned for a purpose while looking up to the top canopy from below inside tent. You had never been one for smart, but you possessed hand-skills, in labor and physical chores. And so, on that fateful morning, you made a decision- to become a farmer, to seek solace and purpose in the simplicity of rural life. Lastly you've wanted to help people.",
             "Help a lot of people with your products and harvest.",
             "Especially in the impoverished regions where war left its scars among the land and people.",
             "It was never a modest dream but it was sincere",
@@ -351,8 +341,15 @@ namespace Dialogue
             "\"Lysander, I decided to leave the band to look for my own purpose\"",
             "\"And leave me behind?\"\nLysander spoke in a cold tone.",
             "\"To leave the band is to find a purpose in life. I have slain many lives with my sword, and now it is time to leave it all behind and atone for all of the sins I committed.\"",
-            "\"I never had any other things in life, but with the rewards after the war, I could start a farm of my own.\"",
-            "\"And die alone?\" Lysander asked.",
+            "\"I never had any other things and knowledge in life, but with the rewards after the war, I could start a farm of my own.\"",
+            "\"And the rewards that led me to steal people's lives will be used to flourish and help people. I will plant seeds thrice or more the amount of how many times I swinged the blade.\"",
+            "Lysander responded",
+            "\"You're telling me now that the war is over, you'll forget all of the things I did for you. Have you not remembered that I have possession of your life the day you've lost to me in a hill?\".",
+            "\"We are mercenaries, we live by the sword and die by the sword.\"",
+            "\"And you just intend to throw it all way then die alone in a stupid farm because you've felt guilty of everything you've done?\"",
+            "I responded back...",
+            "\"It's not only for a farm or for atonement, yes I stole a lot of life with the blade I am holding right now. But it was my dream to help people\"",
+            "\"To not let them suffer early as I did and go to the wrong path.\"",
             $"\"I don't intend to live and die alone; I might probably meet new people, but it might be hard to contact all of you, especially with the recovering economy of my homeland, {chosenCountry}.\"",
             "\"As you speak of dreams and sacrifices yesterday and the past.\"",
             "\"I am prepared to leave the band, yet the memories we shared will forever be in my heart.\"",
@@ -365,21 +362,113 @@ namespace Dialogue
             $"Eoghann's plead\n\"Lysander will prevail. He's our leader. Once {player.username} gets defeated by Lysander, everything will return to normal, won't it?\"",
             "Lysander thought\n\"Everything I had worked hard for, I won't let it slip from my hands.\"",
             "Then, a lone leaf fell to the ground that started the fight.",
-            "I was met by Lysander's charge.",
+            "I was met by Lysander's charge with his sabre pointing towards me.",
             "Then I pierced his leg.",
             "\"As Lysander fell, incapacitated by the attack, I turned away from the scene, ignoring Eoghann's cries to return. With each step, I left behind the echoes of the past.\"",
             "\"I won't look back.\"",
             "I continued to my guideless path towards an uncertain future...",
             };
         }
-        public string[] DialogueThree(string chosenCountry)
+
+        public string[] DialogueTwo(string chosenCountry)
         {
+            string opposedCountry = "";
+
+            if (chosenCountry == "Jahanid Jettaiah Sovereignty")
+            {
+                opposedCountry = "Angevin Victornia Kingdom";
+            }
+            else if (chosenCountry == "Rising Yuandao Dynasty")
+            {
+                opposedCountry = "Jahanid Jettaiah Sovereignty";
+            }
+            else if (chosenCountry == "Angevin Victornia Kingdom")
+            {
+                opposedCountry = "Rising Yuandao Dynasty";
+            }
             return new string[]
             {
             "...",
             "\"How long has it been?\"",
             $"{chosenCountry}...",
-            "",
+            "Five years have passed then- I have not yet recieved an update from the band- it seems they really branded me as a traitor...",
+            "Although I'd established a farm, an unsettling feeling gnawed at me. The wheat seemed stunted, as if it hadn't quite flourished despite the favorable weather and season.",
+            "Lost in thought, my musings were interrupted by a familiar voice, accompanied by the rhythmic sound of horse hooves drawing nearer.",
+            $"\"Captain {player.username}!!\"",
+            "\"I turned to see the familiar figure emerging from the distance.\"",
+            "\"Eaoghann, you've grown?\"",
+            "\"Captain, it is you, isn't it?\"",
+            "\"It's not Captain anymore.\"",
+            $"\"Um, Sir {player.username}...\"",
+            "\"-It's Sir Lysander!\"",
+            "\"It's been years since you left! Finding you here feels like a miracle in this remote place.\"",
+            "\"Ever since you departed from the band, he's been different.\"",
+            "\"He spoke of ancient gods and strange prophecies after returning from Fortaare.\"",
+            "\"Then he disappeared, along with a group of men he'd convinced...\"",
+            "\"Leaving me and Chazos and a few men we fortunately pleaded to stay.\"",
+            "\"After all, we can't kill people anymore for no reason...\"",
+            $"\"The Land of {opposedCountry} has accused him of manslaughter in the village of Behemia, and have put a bounty for his head....\"",
+            $"\"The national tense between {chosenCountry} and {opposedCountry} have bean increasing despite the ruined economy. Rumors have recently spread throughout the land of Lysander's massacares.\"",
+            "\"And his words were recalled by rescued individuals, speaking of a \'Spilled blood is needed, Dream is nearing...\'\"",
+            "\"Please, we've searched for him tirelessly, but it's as if fate is thwarting our efforts.\"",
+            "\"Before parting ways, Lysander wore a peculiar bracelet that glowed.\"",
+            "\"Now we're forced to the outskirts of forests to hide from the allegations that also came from our Country.\"",
+            "\"We don't know where Lysander is but we heard that he is coming to the animo-stonehenge.\"",
+            $"\"It's up to you whether you'll rejoin us and find Lysander or not, and I'll respect your decision no matter what, Captain— Sir {player.username}.\"\n",
+            };
+        }
+        public string[] DialogueThreeDecisionOne(string chosenCountry)
+        {
+            string opposedCountry = "";
+
+            if (chosenCountry == "Jahanid Jettaiah Sovereignty")
+            {
+                opposedCountry = "Angevin Victornia Kingdom";
+            }
+            else if (chosenCountry == "Rising Yuandao Dynasty")
+            {
+                opposedCountry = "Jahanid Jettaiah Sovereignty";
+            }
+            else if (chosenCountry == "Angevin Victornia Kingdom")
+            {
+                opposedCountry = "Rising Yuandao Dynasty";
+            }
+            return new string[]
+            {
+            "You sacrificed your tranquil life you had built to aid with your friend, realizing that despite misunderstandings, you were family.",
+            "With Eoghann by your side, you embarked on a journey to find the hidden camp of the Kin of Lionhearth.",
+            $"Upon arrival, you bore witness to the remnants of your band. Together with Eoghann, Chazos, and the last remaining members, you navigated through the nights to evade the relentless pursuit of the {chosenCountry} Country.",
+            $"As you neared Stonehenge, your troop was ambushed by the elite forces of {opposedCountry}. In the chaos, you found yourself separated from your allies as the elite's group leader tackled you aside.",
+            "\"Why?!\"",
+            "\"Why did you choose to inflict more suffering after the war?!!\", The leader screamed while pointing his shaking hands towards you.",
+            "\"Finally, do you know that your leader, Lysander, is now captured for his greed and arrogance? Rest assured, he faces the consequences for his actions.\"",
+            "\"We have no allegiance to Lysander's massacares. We are merely the last remnants of the Kin of Lionhearts, abandoned long ago by our leader.\"",
+            "\"Then, we'll resolve this with a trial by duel. I am done being a knight and its stupid code.\" The leader proposed angrily.",
+            "\"Let's not complicate matters further,\" you reasoned.\"",
+            "\"What part of complication do you think your leader's actions caused when he plundered my village? My wife and unborn child were consumed by flames that night!\", With tears streaming down his cheeks.",
+            "\"I promised them a better life, only for it to be snatched away by that so-called 'Hero of the War.' It's an injustice beyond measure.\"",
+            "\"I have nothing left to lose. It's either you or I who will die in this cursed world.\"",
+            "\"If you truly understand the anguish in my heart.\"",
+            "\"Then pick up your sword and fight me...\"",
+            };
+        }
+        public string[] DialogueThreeDecisionTwo(string chosenCountry)
+        {
+            return new string[]
+            {
+            "\nDespite your eagerness to help, you remained in pursuing your dream of a quiet life in the rural countryside, away from the chaos of the suffering.",
+            "Eoghann, understanding and respecting your decision, embarked on the journey alone to find Lysander.",
+            "A year later, every step you took filled you with unease. It felt as though a greater evil surrounded the whole world, despite the absence of wars, famine, or plague.",
+            "Then, miraculous aura enveloped the world, attributed to none other than prophesied Lysander the liberator, like to the second coming of a god. However, accounts of mythological creatures—trolls, fairies, and even dragons—were on the rise each passing year.",
+            $"Religious devotion to Lysander had become widespread, with a church built next to your residence, commemorating him as the liberator of oppresion and war and also a sacred figure. The faction of {chosenCountry} now stood as a sanctuary for tranquility, with Lysander reigning from his palace as the new ruler.",
+            "No one knew what befell the previous ruler or government, but the populace embraced Lysander with acceptance.",
+            $"Upon your business call, you journeyed from the remote rural provinces to the capital of {chosenCountry}. With each step closer to the capital, your unease intensified.",
+            "As you arrived, you beheld a familiar figure with golden blonde hair, the appearance of a princess, escorted by otherworldly guards of immense stature larger than Asketill. The mysterious man's face was none other than Lysander himself.",
+            "To your dismay, you never crossed paths with Eoghann, Chazos, or the all of members of the Kin of Lionhearth again, and the prospect of ever seeing them grew hopeless.",
+            "\"Kin of Lionhearth is dead.\"",
+            "Unable to find solace within the inn's corridors, you yearned to flee the capital more than ever. Exhausted and consumed by a cold sweat, you hurried home after completing your business.",
+            "Returning from the capital, sleep was stolen from you. The feeling of unease lingered, haunting you, perhaps to burden you for the rest of your mortal days.",
+            "Just waiting for the inevitable...",
             };
         }
     }
