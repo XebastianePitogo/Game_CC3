@@ -5,6 +5,7 @@ using AsciiArt;
 using Combat;
 using CombatTwo;
 
+
 //check
 namespace Game
 {
@@ -20,7 +21,6 @@ namespace Game
 
         public static void Main(string[] args)
         {
-            Player hero = new Player();
             DisplayIntroduction();
             MainMenu();
         }
@@ -105,11 +105,9 @@ namespace Game
             CombatProgramTwo combatTwo = new CombatProgramTwo(player);
             Dialouge dial = new Dialouge(player);
             DialogueArt dialArt = new DialogueArt();
-            ///////////////////////////
 
-
-
-            /////////////////////////
+            Console.WriteLine(dialArt.hedgeStone());
+            Console.ResetColor();
             for (int i = 0; i < dial.DialogueZero().Length; i++)
             {
                 Console.WriteLine(dial.DialogueZero()[i] + "\n");
@@ -122,8 +120,9 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
+            Console.Clear();
             Console.WriteLine(dialArt.hungry());
             Console.ResetColor();
             for (int i = 0; i < dial.DialogueIntro().Length; i++)
@@ -138,7 +137,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
 
             static string ChooseCountry()
@@ -177,7 +176,6 @@ namespace Game
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nYou have chosen to serve the " + chosenCountry);
             Console.ResetColor();
-
             if (chosenCountry == "Jahanid Jettaiah Sovereignty")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -199,7 +197,7 @@ namespace Game
                 foreach (char c in text)
                 {
                     Console.Write(c);
-                    Thread.Sleep(1);
+                    //Thread.Sleep(1);
                 }
                 Console.ResetColor();
                 Console.WriteLine(place.jettaiah());
@@ -281,7 +279,9 @@ namespace Game
                 Console.ReadKey();
                 Console.Clear();
             }
-
+            ///
+            combatTwo.StartGameTwo(chosenCountry);
+            ///
             for (int i = 0; i < dial.DialogueIntroOne().Length; i++)
             {
                 Console.WriteLine(dial.DialogueIntroOne()[i] + "\n");
@@ -294,7 +294,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
 
             static string ChooseDecisionOne()
@@ -338,7 +338,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    Thread.Sleep(500);
+                    //Thread.Sleep(500);
                 }
             }
 
@@ -355,7 +355,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    Thread.Sleep(500);
+                    //Thread.Sleep(500);
                 }
             }
 
@@ -375,12 +375,11 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("\nIts, ");
-            Console.ResetColor();
             string input = Console.ReadLine() ?? string.Empty;
             player.username = !string.IsNullOrWhiteSpace(input) ? char.ToUpper(input[0]) + input.Substring(1).ToLower() : string.Empty;
 
@@ -406,6 +405,7 @@ namespace Game
                 input = Console.ReadLine() ?? string.Empty;
                 player.username = !string.IsNullOrWhiteSpace(input) ? char.ToUpper(input[0]) + input.Substring(1).ToLower() : string.Empty;
             }
+            Console.ResetColor();
 
             for (int i = 0; i < dial.DialogueIntroThree(chosenCountry).Length; i++)
             {
@@ -419,7 +419,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
             Console.WriteLine(dialArt.fortaare());
             Console.ResetColor();
@@ -435,7 +435,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nBattle Encounter!");
@@ -461,9 +461,11 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
 
+            Console.WriteLine(dialArt.farm());
+            Console.ResetColor();
             for (int i = 0; i < dial.DialogueTwo(chosenCountry).Length; i++)
             {
                 Console.WriteLine(dial.DialogueTwo(chosenCountry)[i] + "\n");
@@ -476,26 +478,104 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                Thread.Sleep(500);
+                //Thread.Sleep(500);
             }
-            Console.WriteLine(dialArt.farm);
-            for (int i = 0; i < dial.DialogueThree(chosenCountry).Length; i++)
-            {
-                Console.WriteLine(dial.DialogueThree(chosenCountry)[i] + "\n");
 
-                if ((i + 1) % DialoguePerClear == 0)
+            static string ChooseDecisionTwo(Player player)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Help Eoghann to find Lysander? <y> (yes) or <n> (no)\n");
+                Console.ResetColor();
+                Console.Write(">> ");
+                string choice = Console.ReadLine();
+                Console.WriteLine("");
+                switch (choice)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("Press [Enter] to continue...");
-                    Console.ResetColor();
-                    Console.ReadLine();
-                    Console.Clear();
+                    case "y":
+                        return "You helped Eoghann.";
+                    case "n":
+                        return "You did not helped Eoghann.";
+                    default:
+                        Console.Clear();
+                        Console.WriteLine($"\"It's up to you whether you'll rejoin us and find Lysander or not, and I'll respect your decision no matter what, Captain— Sir {player.username}.\"\n");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.WriteLine("Invalid choice. Please enter 'y' or 'n'\n");
+                        Console.ResetColor();
+                        return ChooseDecisionTwo(player);
                 }
-                Thread.Sleep(500);
             }
+
+            string chosenDecisionTwo = ChooseDecisionTwo(player);
+            Console.WriteLine(chosenDecisionTwo);
+
+            if (chosenDecisionTwo == "You helped Eoghann.") {
+                for (int i = 0; i < dial.DialogueThreeDecisionOne(chosenCountry).Length; i++)
+                {
+                    Console.WriteLine(dial.DialogueThreeDecisionOne(chosenCountry)[i] + "\n");
+
+                    if ((i + 1) % DialoguePerClear == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("Press [Enter] to continue...");
+                        Console.ResetColor();
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    Console.WriteLine("Ending C - God of Liberation");
+                    Console.WriteLine(dialArt.endingC());
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("\nPress [Enter] >> ");
+                    Console.ReadKey();
+                    Console.ResetColor();
+                    Console.Clear();
+                    MainMenu();
+                }
+            }
+
+            if (chosenDecisionTwo == "You did not helped Eoghann.") {
+                for (int i = 0; i < dial.DialogueThreeDecisionTwo(chosenCountry).Length; i++)
+                {
+                    Console.WriteLine(dial.DialogueThreeDecisionTwo(chosenCountry)[i] + "\n");
+
+                    if ((i + 1) % DialoguePerClear == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("Press [Enter] to continue...");
+                        Console.ResetColor();
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    //Thread.Sleep(500);
+                }
+                Console.WriteLine("Ending A - Peaceful life");
+                Console.WriteLine(dialArt.endingA());
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\nPress [Enter] >> ");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+                MainMenu();
+            }
+
+            string opposedCountry = "";
+            if (chosenCountry == "Jahanid Jettaiah Sovereignty")
+            {
+                opposedCountry = "Angevin Victornia Kingdom";
+            }
+            else if (chosenCountry == "Rising Yuandao Dynasty")
+            {
+                opposedCountry = "Jahanid Jettaiah Sovereignty";
+            }
+            else if (chosenCountry == "Angevin Victornia Kingdom")
+            {
+                opposedCountry = "Rising Yuandao Dynasty";
+            }
+
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("\nBattle Encounter!");
-            Console.WriteLine($"You're the Traitor of Kin of Lionhearth and {chosenCountry}! {player.username}, in the name of mother {chosenCountry}, you shall be purged!\n");
+            Console.WriteLine($"That DAMNED Kin of Lionheart and their cursed Lysander with his antics!{player.username}\n");
+            Console.WriteLine($"In the name of mother {opposedCountry} and God, our sword will bear answer this!\n");
             Console.WriteLine(fight.knight());
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("\nPress [Enter] >> ");
@@ -510,15 +590,16 @@ namespace Game
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\n\"www.asciiart.eu\" - For provided ASCII arts");
-            Console.WriteLine("\n\"www.loveascii.com\" - Castle tower ASCII art");
-            Console.WriteLine("\n\"www.ascii.co.uk\" - Skull ASCII Art");
-            Console.WriteLine("\n(www.asciiart.eu) Tua Xiong - Knight, Warrior ASCII art");
-            Console.WriteLine("\n(www.asciiart.eu) Marcin Glinski - Castle ASCII art");
-            Console.WriteLine("\n(www.asciiart.eu) Glory Moon - Temple ASCII art");
             Console.WriteLine("\nDon Harl - Teaching C# Basics");
             Console.WriteLine("\nMichael Hadley (@mikewesthad) - Gamedev tutorials");
             Console.WriteLine("\nDaFluffyPotato (@DaFluffyPotato) - Gamedev tutorials");
+            Console.WriteLine("\n(www.ascii.co.uk) SSt/JaWa - Window ASCII art");
+            Console.WriteLine("\n\"www.asciiart.eu\" - For provided ASCII arts");
+            Console.WriteLine("\n\"www.loveascii.com\" - Castle tower ASCII art");
+            Console.WriteLine("\n\"www.asciiart.eu\" - For provided ASCII arts");
+            Console.WriteLine("\n\t(www.asciiart.eu) Tua Xiong - Knight, Warrior ASCII art");
+            Console.WriteLine("\n\t(www.asciiart.eu) Marcin Glinski - Castle ASCII art");
+            Console.WriteLine("\n\t(www.asciiart.eu) Glory Moon - Temple ASCII art");
             Console.Write("\n>> ");
             Console.ReadKey();
             Console.ResetColor();

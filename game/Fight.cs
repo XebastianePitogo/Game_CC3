@@ -8,12 +8,10 @@ public class CombatProgram
     Death deathScene = new Death();
     Win winscene = new Win();
     private Player player;
-
-    public int playerHP = 100;
+    public int playerHP = 200;
     public int playerLeftHand = 100;
     public int playerRightHand = 100;
-
-    public int asketillHP = 100;
+    public int asketillHP = 200;
     public int asketillLeftHand = 100;
     public int asketillRightHand = 100;
 
@@ -39,12 +37,14 @@ public class CombatProgram
         {
             DisplayStats();
             PlayerTurn();
+
+
             if (asketillHP <= 0 && asketillLeftHand <= 0 && asketillRightHand <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nAsketill Main HP fell to <0>!");
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\nAsketill the Giant fell in battle, Such a huge target-dummy to hit.");
+                Console.WriteLine("\nAsketill the Giant fell in battle, such a huge target-dummy to hit. That was close");
                 Console.WriteLine("\nYou stand tall and won in the aftermath of the battle, you are granted another day to endure the relentless suffering that awaits for your destiny... ");
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("\n" + winscene.winart());
@@ -62,7 +62,7 @@ public class CombatProgram
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\n\"That little twig didn't stood a chance!\"");
+                Console.WriteLine("\n\"I'm not gonna sugarcoat it!\"");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nYou succumbed during battle, You have finally embraced bliss after enduring the prolonged suffering of battle...");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -110,11 +110,11 @@ public class CombatProgram
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("\n================================================================================");
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine("\t"+player.username + $"'s Main HP: <{playerHP}>     |   Left Limb: <{playerLeftHand}>   |   Right Limb: <{playerRightHand}>");
+        Console.WriteLine(player.username + $"'s Main HP: <{playerHP}>     |   Left Limb: <{playerLeftHand}>   |   Right Limb: <{playerRightHand}>");
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("--------------------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"\tAsketill the Giant's Main HP: <{asketillHP}>     |   Left Limb: <{asketillLeftHand}>   |   Right Limb: <{asketillRightHand}>");
+        Console.WriteLine($"Asketill the Giant's Main HP: <{asketillHP}>     |   Left Limb: <{asketillLeftHand}>   |   Right Limb: <{asketillRightHand}>");
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("================================================================================");
         Console.ResetColor();
@@ -188,7 +188,7 @@ public class CombatProgram
     private void AttackPlayer(int targetLimb)
     {
         string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
-        int damage = new Random().Next(10, 20);
+        int damage = new Random().Next(11, 23);
 
         Console.WriteLine("----------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Red;
