@@ -279,9 +279,6 @@ namespace Game
                 Console.ReadKey();
                 Console.Clear();
             }
-            ///
-            combatTwo.StartGameTwo(chosenCountry);
-            ///
             for (int i = 0; i < dial.DialogueIntroOne().Length; i++)
             {
                 Console.WriteLine(dial.DialogueIntroOne()[i] + "\n");
@@ -522,7 +519,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    Console.WriteLine("Ending C - God of Liberation");
+                    Console.WriteLine("Ending C - God of Liberation.");
                     Console.WriteLine(dialArt.endingC());
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write("\nPress [Enter] >> ");
@@ -548,7 +545,7 @@ namespace Game
                     }
                     //Thread.Sleep(500);
                 }
-                Console.WriteLine("Ending A - Peaceful life");
+                Console.WriteLine("Ending A - Peaceful life?");
                 Console.WriteLine(dialArt.endingA());
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("\nPress [Enter] >> ");
