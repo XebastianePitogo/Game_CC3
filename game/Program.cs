@@ -4,6 +4,7 @@ using Dialogue;
 using AsciiArt;
 using Combat;
 using CombatTwo;
+using CombatThree;
 
 
 //check
@@ -72,7 +73,6 @@ namespace Game
                     case "1":
                         Console.Clear();
                         Console.WriteLine("Starting game...");
-                        //
                         Console.Clear();
                         PlayGame();
                         break;
@@ -103,8 +103,10 @@ namespace Game
             Player player = new Player();
             CombatProgram combat = new CombatProgram(player);
             CombatProgramTwo combatTwo = new CombatProgramTwo(player);
+            CombatProgramThree combatThree = new CombatProgramThree(player);
             Dialouge dial = new Dialouge(player);
             DialogueArt dialArt = new DialogueArt();
+
 
             Console.WriteLine(dialArt.hedgeStone());
             Console.ResetColor();
@@ -120,8 +122,9 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
+
             Console.Clear();
             Console.WriteLine(dialArt.hungry());
             Console.ResetColor();
@@ -137,7 +140,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
 
             static string ChooseCountry()
@@ -197,7 +200,7 @@ namespace Game
                 foreach (char c in text)
                 {
                     Console.Write(c);
-                    //Thread.Sleep(1);
+                    Thread.Sleep(1);
                 }
                 Console.ResetColor();
                 Console.WriteLine(place.jettaiah());
@@ -291,7 +294,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
 
             static string ChooseDecisionOne()
@@ -335,8 +338,9 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    //Thread.Sleep(500);
+                
                 }
+            Thread.Sleep(500);
             }
 
             if (chosenDecisionOne == "You Ignored the children.") {
@@ -352,8 +356,9 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    //Thread.Sleep(500);
+                
                 }
+                Thread.Sleep(500);
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -372,7 +377,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -416,7 +421,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
             Console.WriteLine(dialArt.fortaare());
             Console.ResetColor();
@@ -432,7 +437,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nBattle Encounter!");
@@ -458,7 +463,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
 
             Console.WriteLine(dialArt.farm());
@@ -475,7 +480,7 @@ namespace Game
                     Console.ReadLine();
                     Console.Clear();
                 }
-                //Thread.Sleep(500);
+            Thread.Sleep(500);
             }
 
             static string ChooseDecisionTwo(Player player)
@@ -519,16 +524,80 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    Console.WriteLine("Ending C - God of Liberation.");
-                    Console.WriteLine(dialArt.endingC());
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\nPress [Enter] >> ");
-                    Console.ReadKey();
-                    Console.ResetColor();
-                    Console.Clear();
-                    MainMenu();
+                    Thread.Sleep(500);
                 }
+                string opposedCountry = "";
+                if (chosenCountry == "Jahanid Jettaiah Sovereignty")
+                {
+                    opposedCountry = "Angevin Victornia Kingdom";
+                }
+                else if (chosenCountry == "Rising Yuandao Dynasty")
+                {
+                    opposedCountry = "Jahanid Jettaiah Sovereignty";
+                }
+                else if (chosenCountry == "Angevin Victornia Kingdom")
+                {
+                    opposedCountry = "Rising Yuandao Dynasty";
+                }
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("\nBattle Encounter!");
+                Console.WriteLine($"That DAMNED Kin of Lionheart and their cursed Lysander with his antics!{player.username}\n");
+                Console.WriteLine($"In the name of mother {opposedCountry} and God, our sword will bear answer this!\n");
+                Console.WriteLine(fight.knight());
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\nPress [Enter] >> ");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+                combatTwo.StartGameTwo(chosenCountry);
+                Console.Clear();
+                Console.ResetColor();
+                for (int i = 0; i < dial.DialogueFourDecisionOne().Length; i++)
+                {
+                    Console.WriteLine(dial.DialogueFourDecisionOne()[i] + "\n");
+
+                    if ((i + 1) % DialoguePerClear == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("Press [Enter] to continue...");
+                        Console.ResetColor();
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    Thread.Sleep(500);
+                }
+                Console.WriteLine(dialArt.oldGod());
+                for (int i = 0; i < dial.DialogueFive().Length; i++)
+                {
+                    Console.WriteLine(dial.DialogueFive()[i] + "\n");
+
+                    if ((i + 1) % DialoguePerClear == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("Press [Enter] to continue...");
+                        Console.ResetColor();
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    Thread.Sleep(500);
+                }
+                //////////////////////////////////
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nBattle Encounter!");
+                Console.WriteLine($"Do you really wish to be this way? {player.username}.\n");
+                Console.WriteLine($"I will never sacrifice my dream...\n");
+                Console.WriteLine(fight.Lysander());
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\nPress [Enter] >> ");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+                combatThree.StartGameThree();
+                Console.Clear();
+                Console.ResetColor();
+                /////////////////////////////////
             }
+
 
             if (chosenDecisionTwo == "You did not helped Eoghann.") {
                 for (int i = 0; i < dial.DialogueThreeDecisionTwo(chosenCountry).Length; i++)
@@ -543,7 +612,7 @@ namespace Game
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    //Thread.Sleep(500);
+                    Thread.Sleep(500);
                 }
                 Console.WriteLine("Ending A - Peaceful life?");
                 Console.WriteLine(dialArt.endingA());
@@ -554,34 +623,6 @@ namespace Game
                 Console.Clear();
                 MainMenu();
             }
-
-            string opposedCountry = "";
-            if (chosenCountry == "Jahanid Jettaiah Sovereignty")
-            {
-                opposedCountry = "Angevin Victornia Kingdom";
-            }
-            else if (chosenCountry == "Rising Yuandao Dynasty")
-            {
-                opposedCountry = "Jahanid Jettaiah Sovereignty";
-            }
-            else if (chosenCountry == "Angevin Victornia Kingdom")
-            {
-                opposedCountry = "Rising Yuandao Dynasty";
-            }
-
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine("\nBattle Encounter!");
-            Console.WriteLine($"That DAMNED Kin of Lionheart and their cursed Lysander with his antics!{player.username}\n");
-            Console.WriteLine($"In the name of mother {opposedCountry} and God, our sword will bear answer this!\n");
-            Console.WriteLine(fight.knight());
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("\nPress [Enter] >> ");
-            Console.ReadKey();
-            Console.ResetColor();
-            Console.Clear();
-            combatTwo.StartGameTwo(chosenCountry);
-            Console.Clear();
-            Console.ResetColor();
         }
         private static void Credits()
         {

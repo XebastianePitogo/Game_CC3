@@ -174,7 +174,7 @@ namespace Dialogue
             return new string[]
             {
             $"\n\"It's {player.username}...\"",
-            $"\"Well hello {player.username}, I am Lysander.\" With a gentle smil.\nI took his reaching hands and then.",
+            $"\"Well hello {player.username}, I am Lysander.\" With a gentle smile.\nI took his reaching hands and then.",
             "I found myself accepting to my own shallow proposition and joining Lysander and his band, becoming the captain over the years I became a member of the Kin of LionHearth. It was a significant shift, the first step in a journey where everything I once owned became his.",
             "Gradually gaining respect for him over five years. Everyone within the band became a part of my family.",
             $"Under Lysander's leadership, our band grew more, all reasons of mercenaries joining was to see Lysander's achieving his dream. It was also this time our band earning recognition from the ruler of {reinforcementCountry}. Promises of handsome rewards awaited us, if our success in leading a critical battle that would determine the fate of our country's control over the war.",
@@ -463,12 +463,123 @@ namespace Dialogue
             $"Religious devotion to Lysander had become widespread, with a church built next to your residence, commemorating him as the liberator of oppresion and war and also a sacred figure. The faction of {chosenCountry} now stood as a sanctuary for tranquility, with Lysander reigning from his palace as the new ruler.",
             "No one knew what befell the previous ruler or government, but the populace embraced Lysander with acceptance.",
             $"Upon your business call, you journeyed from the remote rural provinces to the capital of {chosenCountry}. With each step closer to the capital, your unease intensified.",
-            "As you arrived, you beheld a familiar figure with golden blonde hair, the appearance of a princess, escorted by otherworldly guards of immense stature larger than Asketill. The mysterious man's face was none other than Lysander himself.",
+            "As you arrived, you beheld a familiar figure with golden blonde hair, the appearance of a princess, escorted by otherworldly guards that looked like orcs of immense stature larger than Asketill. The mysterious man's face was none other than Lysander himself.",
             "To your dismay, you never crossed paths with Eoghann, Chazos, or the all of members of the Kin of Lionhearth again, and the prospect of ever seeing them grew hopeless.",
             "\"Kin of Lionhearth is dead.\"",
             "Unable to find solace within the inn's corridors, you yearned to flee the capital more than ever. Exhausted and consumed by a cold sweat, you hurried home after completing your business.",
             "Returning from the capital, sleep was stolen from you. The feeling of unease lingered, haunting you, perhaps to burden you for the rest of your mortal days.",
             "Just waiting for the inevitable...",
+            };
+        }
+
+        public string[] DialogueFourDecisionOne()
+        {
+            return new string[]
+            {
+            "The demise of the knight's stayed within heavily in your heart, yet his his death was the only way to alleviate his suffering, a man with nothing left to lose would be a trouble.",
+            "Now, you ventured toward the ancient Stonehenges along with your band, rumored to be once used for prisoners in ancient times. The cold dungeons welcomed you with a hair-rising welcome as you opened the secret passageway leading towards Lysander",
+            "Each step down the seemingly endless stairs led to rooms of unique interiors.",
+            "At the lowest gate of the dungeon, you beheld the sight of the once heroic Lysander, tortured and left to die alone in the dungeon, a cruel ironic attempt of crown of thorns forced upon his head. Despite his weakened state, his gaze bore a cold spite as he called out your name.",
+            "\"The darkness caused me to lose track of time and myself, depriving me of basic senses; every day, all, every, single day the tortures became number-\"",
+            "\"I wonder where the suffering will end and when peace will come. It caused me to lose my personality and dignity- my very being.\"",
+            "\"And you are the very reason why I lost my body.\", before his raspy voice gives out.",
+            "Yet, amidst the cold speech, you felt a surge of relief at finding him still alive, clinging to hope, however how dark the hope may be.",
+            "Supporting his tortured body- where his limbs have gotten as thin as a sword's hilt,",
+            "You prepared to leave the prison confines for his safety. But before you could carry him away to the room, Lysander revealed that he had left something behind in another room.",
+            "\"I left something behind, I'll get it...\"",
+            "Following what might be his instructions, you arrived at a dead end where he instructed you to pull a brick, revealing a ritualistic circle—an ancient sigil with scriptures. Suspicion got at you, but you respectfully complied, honoring what might have been his final wish.",
+            "As you hesitated, Lysander's bracelet began to glow, and a wave of otherworldly horror swept through your band, each member suffering in agony as the burns from the darkness scorches them.",
+            "\"Everyone!, the light prevents the burns caused by the darkness- set your clothes ablaze using the torch!\", Chazos Screamed",
+            "Desperate for the small light source, they set their clothes on fire to ward off the darkness' burns.",
+            "While the unlucky few morphs in to painful amalgamations of flesh",
+            "The particular member has painful growths of his nose, and the other grew a spike on his forehead while standing at four limbs that became hooves.",
+            "Outside the dim light cast by the fires, the unlucky members became mythical creatures emerging from every corner darkness —trolls, goblins, even a gnome that ran towards the exit. Fortunately, the flames have prevented a larger crowd and even more dangerous morphs.",
+            "\"You felt a sharp pierce on your stomache as one horned pegasus charged towards, pushing you outside the room.\"",
+            "\"In your horror, the door locked itself- locking you away from your comrades.\"",
+            $"\"Captain {player.username}!!!\"",
+            "\"I'LL COME THROUGH!\", you screamed in hopes of getting inside with the band",
+            "Amidst the chaos, hard glowing blood formed on the ancient sigils with each characters of scriptures glowing one after the other, and Lysander called out to the darkness as \"THEM\". An ominous voice with flies forming it's figures echoed in response.",
+            "\"From the darkness, I emerged, my breath became of death itself.\"",
+            "\"If thou harborest the fervent desire to ascend beyond mortal confines\"",
+            "\"For to be counted among 'us,' requires single wish.\"",
+            "\"LYSANDER! this is not like you man. Whatever you are doing right now is not right, I do not know what the hell is happening but live with us again.\", Chazos screamed.",
+            "\"Like we used to be.\"",
+            "Lysander then said.",
+            "\"Despite the abuse I took, I refused to live my days as a cripple. I do not want my freedom to dream taken away from me ever again.\".",
+            "\"To surrender, to despair and live without achieving my dreams?\"",
+            "\"And die insiden, what kept me pursuing? What I had you all for, taken in?\"",
+            "\"I will continue to dream.\"",
+            "\"LYSANDER DONT DO IT!!\", I screamed.",
+            "\"I WANT TO BE \"THEM\"!!\", Lysander screamed",
+            };
+        }
+
+        public string[] DialogueFive()
+        {
+            return new string[]
+            {
+            "\"Granted\", as you all felt weak while the ominous figure spoke.",
+            "The darkness now growing larger than ever despite the raging fires caused, swallowing the steady glow of light, eating every member of the band through darkness.",
+            $"\"CAPTAIN {player.username}, HELP\" Their desperate cries dying out in the void, each plea calling out for each other's names.",
+            "\"CHAZOS!!\"",
+            "\"EOGHANN!!\"",
+            "...",
+            "......",
+            "...........",
+            "Until, at last, silence was louder.",
+            "\"LYSANDER HOW COULD YOU!!!\", you screamed at the top of your lungs",
+            "Your tears dried out.",
+            "Your lips overflowing with blood.",
+            "Then...",
+            "Lysander came out along with mythologicals creature.",
+            "\"I had to, for my dream.\"",
+            "\"I will rule over-\"",
+            "",
+            "\"I will KILL YOU!!!\", you screamed with pure intent of killing Lysander- to avenge my fallen comrades.",
+            "\"LIMB MY LIMB!\"",
+            "\"PULL THAT DAMNED HAIR!\"",
+            "\"SKIN YOU TO DEATH!\"",
+            "\"Lysander responded\"",
+            "\"I you truly wish to die in vain then so be it.\"",
+            };
+        }
+
+        
+        public string[] DialogueEndingC()
+        {
+            return new string[]
+            {
+                "As otherworldly creatures emerged from the depths of the darkness - caves, nights, and houses, an ominous presence descended upon the world.",
+                "A beacon of hope emerged of the past war hero, Lysander. Returning home from the ravages of battle, he ascended to the throne, his presence alleviating ominouse fears from the faction.",
+                "Lysander ushered in an era of peace by liberating oppressed lands and halting the ceaseless tide of war.",
+                "Lysander also slain all creatures of darkness to help those in need.",
+                "However, amidst the prosperity brought by Lysander the Liberator, a mystery unfolded—the disappearance of his band known as the kin of Lionhearth.",
+                "Though the kingdom flourished under Lysander's leadership, the whereabouts of his companions remained unknown through the chambers of time.",
+                "As tales of Lysander's heroism spread far and wide, so too did growing rumors of the radiant bracelet adorning his wrist and his unqiue apperance of being- a sun.",
+                "Now the age of liberation ushered on the wounded era from wars.",
+                "And so did too the influence of Lysander.",
+                "...",
+            };
+        }
+
+        public string[] DialogueEndingB()
+        {
+            return new string[]
+            {
+                "As you lay next on the cold body of lysander's",
+                "Darkness enshrouded you, devouring and burning your flesh,",
+                "Horns erupted from your face, your body undergoing painful metamorphosis through uncontrollable enlargment ",
+                "The silence that followed, you ceased to be.",
+                "...",
+                "The kin of Lionheart with its war-hero and their members vanished without a trace,",
+                "leaving behind a legacy shrouded in mystery",
+                "Rumors spread of the band like wildfire, from living new life away from punishments concerning massacares",
+                "to Lysander's act of toying with otherwordly powers.",
+                "As the dark news reached the war-torn land, the emergence of otherworldly creatures heralded a new era of famine, death, and plague.",
+                "Yet amidst the chaos, tales emerged of a humanoid figure with a bull-like face, slaying its own kind- creatures of darkness.",
+                "Though the purpose of this bull-creature remained a mystery, its relentless pursuit of creatures spawned from darkness struck confusion and fear into the mass.",
+                "It's only purpose is to kill darkness spawns, just as it how of a daily routine for it to eat- where all creatures know it's story and tales.",
+                "To this day, it yearns for destruction, violence, and blood of it's own kind.",
             };
         }
     }

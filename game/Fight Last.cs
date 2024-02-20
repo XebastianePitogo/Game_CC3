@@ -1,19 +1,19 @@
 using System;
 using AsciiArt;
 using Game;
-using CombatLast;
+using Ending;
 using Dialogue;
 
-namespace CombatThree;
-public class CombatProgramThree
+namespace CombatLast;
+public class CombatProgramLast
 {
     Death deathScene = new Death();
     Win winscene = new Win();
     private Player player;
 
-    public int playerHP = 10;
-    public int playerLeftHand = 5;
-    public int playerRightHand = 5;
+    public int playerHP = 6;
+    public int playerLeftHand = 3;
+    public int playerRightHand = 3;
 
     public int lysanderHP = 1000;
     public int lysanderLeftHand = 500;
@@ -25,21 +25,21 @@ public class CombatProgramThree
     public bool lysanderLeftHandLost = false;
     public bool lysanderRightHandLost = false;
 
-    public CombatProgramThree(Player player)
+    public CombatProgramLast(Player player)
     {
         this.player = player;
     }
 
-    public void StartGameThree()
+    public void StartGameLast()
     {
         FightEncoutner fight = new FightEncoutner();
-        CombatProgramThree combatThree = new CombatProgramThree(player);
         CombatProgramLast combatLast = new CombatProgramLast(player);
+        End end = new End(player);
         DialogueArt dialArt = new DialogueArt();
         Dialouge dial = new Dialouge(player);
 
         Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine("\nI'LL KILL YOU.");
+        Console.WriteLine("\nCrawl Through Mud and Blood.....");
         
         
 
@@ -50,46 +50,6 @@ public class CombatProgramThree
             PlayerTurn();
 
             lysanderTurn();
-
-            void PrintOnce(int playerHP)
-            {
-                for (int i = 0; i < 5; ++i) {
-                    if (playerHP == 10)
-                        PrintMessage("Ungrateful Swine.");
-                }
-
-                for (int i = 0; i < 4; ++i) {
-                    if (playerHP == 9)
-                        PrintMessage("Feel how I felt.");
-                }
-
-                for (int i = 0; i < 3; ++i) {
-                    if (playerHP == 8)
-                        PrintMessage("Suffer without cause.");
-                }
-                
-                for (int i = 0; i < 2; ++i) {
-                    if (playerHP == 7)
-                        PrintMessage("Abused that felt like eternity");
-                }
-            
-                    if (playerHP == 6)
-                        PrintMessage("Die here.");
-                
-                    if (playerHP == 5)
-                        PrintMessage("On a cold place.");
-                
-                    if (playerHP == 4)
-                        PrintMessage("Nameless, Forgotten just like the others.");
-                    if (playerHP == 3)
-                        PrintMessage("It's Futile.");
-                
-                    if (playerHP == 2)
-                        PrintMessage("Two.");
-
-                    if (playerHP == 1)
-                        PrintMessage("One.");
-            }
 
             void PrintMessage(string message)
             {
@@ -102,14 +62,15 @@ public class CombatProgramThree
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("\n\"Then die' like the others.\"");
-                Console.WriteLine("\n\"You felt blank.\"");
+                Console.WriteLine("\n\"Just stay there.\"");
+                Console.WriteLine("\n\"Stop your senseless suffering.\"");
                 Console.ForegroundColor = ConsoleColor.Yellow;
             
                 string userTry;
                 do
                 {
-                    Console.WriteLine("\nRestart fight? <y>(Yes) or <n>(No)");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("\nGO on <y> <n>??");
                     Console.Write(">> ");
                     userTry = Console.ReadLine().ToLower();
                 } while (userTry != "y" && userTry != "n");
@@ -118,15 +79,18 @@ public class CombatProgramThree
                 {
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("\n\"I still want to keep going.\"");
-                    Console.WriteLine("\"All of their death would be in vain...\"\n");
-                    Console.WriteLine("........");
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.Write("\nKeep going >> ");
+                    Console.WriteLine("Even if my Legs are lost, I crawl towards you.");
+                    Console.WriteLine("Even if my Arms are lost, I will use my teeth to bite jsut to move an inch.");
+                    Console.WriteLine("Even if you blind my eye, I will still find a way");
+                    Console.WriteLine("And bring destruction on your body.");
+                    Console.WriteLine("To Kill You.");
+                    Console.WriteLine("Every single thing what makes of you.");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("\nKill him >> ");
                     Console.ReadKey();
                     Console.ResetColor();
                     Console.Clear();
-                    combatLast.StartGameLast();
+                    end.StartGameEnd();
                     Console.Clear();
                     Console.ResetColor();
                 }
@@ -159,6 +123,26 @@ public class CombatProgramThree
                 {
                     Console.Clear();
                 }
+            }
+            
+            void PrintOnce(int playerHP)
+            {
+                    if (playerHP == 6)
+                        PrintMessage("?????");
+                
+                    if (playerHP == 5)
+                        PrintMessage("You still wish to stand?");
+                
+                    if (playerHP == 4)
+                        PrintMessage("Until failure?");
+                    if (playerHP == 3)
+                        PrintMessage("Just Stop.");
+                
+                    if (playerHP == 2)
+                        PrintMessage("Forget everything what happened.");
+
+                    if (playerHP == 1)
+                        PrintMessage("Forget everything what happened.");
             }
         }
     }
@@ -309,6 +293,7 @@ public class CombatProgramThree
     {
         playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 :playerRightHand);
     }
+
 
     static int GetValidInput(int minValue, int maxValue)
     {
