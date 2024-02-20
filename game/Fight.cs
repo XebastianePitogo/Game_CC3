@@ -57,7 +57,7 @@ public class CombatProgram
 
             asketillTurn();
 
-            if (playerHP <= 0 && playerLeftHand <= 0 && playerRightHand <= 0)
+            if (playerHP == 0 && playerLeftHand == 0 && playerRightHand == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
@@ -288,7 +288,7 @@ public class CombatProgram
 
     void UpdatePlayerHP()
     {
-        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 : asketillRightHand);
+        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 : playerRightHand);
     }
 
     void UpdateasketillHP()

@@ -1,101 +1,145 @@
 using System;
 using AsciiArt;
 using Game;
+using Dialogue;
 
-namespace CombatTwo;
-public class CombatProgramTwo
+namespace Ending;
+public class End
 {
     Death deathScene = new Death();
     Win winscene = new Win();
     private Player player;
 
-    public int playerHP = 400;
-    public int playerLeftHand = 200;
-    public int playerRightHand = 200;
+    public int playerHP = 6;
+    public int playerLeftHand = 3;
+    public int playerRightHand = 3;
 
-    public int knightHP = 400;
-    public int knightLeftHand = 200;
-    public int knightRightHand = 200;
+    public int lysanderHP = 6;
+    public int lysanderLeftHand = 3;
+    public int lysanderRightHand = 3;
 
     public bool playerLeftHandLost = false;
     public bool playerRightHandLost = false;
 
-    public bool knightLeftHandLost = false;
-    public bool knightRightHandLost = false;
+    public bool lysanderLeftHandLost = false;
+    public bool lysanderRightHandLost = false;
 
-    public CombatProgramTwo(Player player)
+    public End(Player player)
     {
         this.player = player;
     }
 
-    public void StartGameTwo(string chosenCountry)
+    public void StartGameEnd()
     {
         FightEncoutner fight = new FightEncoutner();
-        CombatProgramTwo combatTwo = new CombatProgramTwo(player);
-        Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine("You find yourself unable to run, and the only way out is to... spill blood.");
+        End end = new End(player);
+        DialogueArt dialArt = new DialogueArt();
+        Dialouge dial = new Dialouge(player);
 
-        while (playerHP > 0 && knightHP > 0)
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine("not yet.....");
+        
+        
+
+        while (playerHP > 0 && lysanderHP > 0)
         {
+            PrintOnce(playerHP);
             DisplayStats();
             PlayerTurn();
-            if (knightHP <= 0 && knightLeftHand <= 0 && knightRightHand <= 0)
+
+            if (lysanderHP <= 0 && lysanderLeftHand <= 0 && lysanderRightHand <= 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("\nGunterius the Knight Main HP fell to <0>!");
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\n\"It has to be this way... Alisa, Chip I'll follow both of you.\"");
-                Console.WriteLine("\nGunterius the Knight fell in battle while holding a portrait of his wife, You felt guilt yet it had to be done.");
-                Console.WriteLine("\nYou stand tall and won in the aftermath of the battle, You move closer to your inevitable suffering that lies in your destiny... ");
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
-                Console.WriteLine("\n" + winscene.winart());
+                Console.WriteLine("\nlysander Main HP fell to <0>!\n");
+                Console.ResetColor();
+                for (int i = 0; i < dial.DialogueEndingB().Length; i++)
+                    {
+                        Console.WriteLine(dial.DialogueEndingB()[i] + "\n");
+                        if ((i + 1) % 5 == 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("Press [Enter] to continue...");
+                            Console.ResetColor();
+                            Console.ReadLine();
+                            Console.Clear();
+                        }
+                    }
+                Console.WriteLine(dialArt.endingB());
+                Console.WriteLine("Ending B - God of Destruction.");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Proceed?");
-                Console.Write(">> ");
+                Console.Write("\nPress [Enter] >> ");
                 Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+                MudAndBloodGame.MainMenu();
                 break;
             }
 
-            knightTurn();
+            lysanderTurn();
 
-            if (playerHP == 0 && playerLeftHand == 0 && playerRightHand == 0)
+            void PrintMessage(string message)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\n\"Seems you were Lysander's pawn after all, Alisa, Chip I've finally avanged both of you...\"");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nYou succumbed during battle, You have finally embraced bliss after enduring the prolonged suffering of battle...");
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("\n" + deathScene.skullArt());
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"\n {message}");
+            }
 
+            if (playerHP <= 0 && playerLeftHand <= 0 && playerRightHand <= 0)
+            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\n{player.username} Main HP fell to <0>!");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\"Just stay there.\"");
+                Console.WriteLine("\n\"Stop your senseless suffering.\"");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            
                 string userTry;
                 do
                 {
-                    Console.WriteLine("Restart fight? <y>(Yes) or <n>(No)");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("GO on <y> <n>??");
                     Console.Write(">> ");
                     userTry = Console.ReadLine().ToLower();
                 } while (userTry != "y" && userTry != "n");
 
                 if (userTry == "y")
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("\nBattle Encounter!");
-                    Console.WriteLine($"That DAMNED Kin of Lionheart and their cursed Lysander with his antics!{player.username}\n");
-                    Console.WriteLine($"In the name of mother \\ and God, our sword will bear answers!\n");
-                    Console.WriteLine(fight.knight());
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("\nPress [Enter] >> ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Even if my Legs are lost, I crawl towards you.");
+                    Console.WriteLine("Even if my Arms are lost, I will use my teeth to bite jsut to move an inch.");
+                    Console.WriteLine("Even if you blind my eye, I will still find a way");
+                    Console.WriteLine("And bring destruction on your body.");
+                    Console.WriteLine("To Kill You.");
+                    Console.WriteLine("Every single thing what makes of you.");
+                    Console.Write("\nKill him >> ");
                     Console.ReadKey();
                     Console.ResetColor();
                     Console.Clear();
-                    combatTwo.StartGameTwo(chosenCountry);
+                    end.StartGameEnd();
                     Console.Clear();
                     Console.ResetColor();
                 }
                 else if (userTry == "n")
                 {
+                    Console.ResetColor();
+                    for (int i = 0; i < dial.DialogueEndingC().Length; i++)
+                        {
+                            Console.WriteLine(dial.DialogueEndingC()[i] + "\n");
+                            if ((i + 1) % 5 == 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.Write("Press [Enter] to continue...");
+                                Console.ResetColor();
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                        }
+                    Console.WriteLine(dialArt.endingC());
+                    Console.WriteLine("Ending C - God of Liberation.");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("\nPress [Enter] >> ");
+                    Console.ReadKey();
+                    Console.ResetColor();
                     Console.Clear();
                     MudAndBloodGame.MainMenu();
                 }
@@ -104,9 +148,29 @@ public class CombatProgramTwo
                     Console.Clear();
                 }
             }
+            
+            void PrintOnce(int playerHP)
+            {
+                    if (playerHP == 6)
+                        PrintMessage("I AM THE BASIC CONCEPT OF LIBERATION.");
+                
+                    if (playerHP == 5)
+                        PrintMessage("KILLING ME WOULD CAUSE WARS.");
+                
+                    if (playerHP == 4)
+                        PrintMessage("MY EXISTENCE IS TO END WARS.");
+                    if (playerHP == 3)
+                        PrintMessage("STOP I SAID.");
+                
+                    if (playerHP == 2)
+                        PrintMessage($"{player.username}!!!");
+
+                    if (playerHP == 1)
+                        PrintMessage($"{player.username}!!!");
+            }
         }
     }
-    public void DisplayStats()
+     public void DisplayStats()
     {
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("\n================================================================================");
@@ -114,8 +178,8 @@ public class CombatProgramTwo
         Console.WriteLine(player.username + $"'s Main HP: <{playerHP}>     |   Left Limb: <{playerLeftHand}>   |   Right Limb: <{playerRightHand}>");
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("--------------------------------------------------------------------------------");
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"Gunterius the Knight's Main HP: <{knightHP}>     |   Left Limb: <{knightLeftHand}>   |   Right Limb: <{knightRightHand}>");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine($"Lysander the Liberator's Main HP: <{lysanderHP}>     |   Left Limb: <{lysanderLeftHand}>   |   Right Limb: <{lysanderRightHand}>");
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("================================================================================");
         Console.ResetColor();
@@ -151,7 +215,7 @@ public class CombatProgramTwo
 
             if ((targetLimb == 1) || (targetLimb == 2))
             {
-                Attackknight(targetLimb);
+                Attacklysander(targetLimb);
             }
 
         }
@@ -161,13 +225,13 @@ public class CombatProgramTwo
         }
     }
 
-    void knightTurn()
+    void lysanderTurn()
     {
         Random random = new Random();
 
-        if (knightLeftHandLost && knightRightHandLost)
+        if (lysanderLeftHandLost && lysanderRightHandLost)
         {
-            knightDefend();
+            lysanderDefend();
             return;
         }
         if (playerLeftHandLost)
@@ -189,11 +253,11 @@ public class CombatProgramTwo
     private void AttackPlayer(int targetLimb)
     {
         string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
-        int damage = new Random().Next(28, 43);
+        int damage = 1;
 
         Console.WriteLine("----------------------------------------------------------------------");
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine($"\nGunterius the Knight attacks your <{limb}> and deals <{damage}> damage!\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"\nlysander attacks your <{limb}> and deals <{damage}> damage!\n");
         Console.ResetColor();
         Console.WriteLine("----------------------------------------------------------------------");
         UpdatePlayerHP();
@@ -229,42 +293,42 @@ public class CombatProgramTwo
     }
 
 
-    private void Attackknight(int targetLimb)
+    private void Attacklysander(int targetLimb)
     {
         string limb = targetLimb == 1 ? "Left Limb" : "Right Limb";
-        int damage = new Random().Next(31, 41);
+        int damage = 1;
         Console.WriteLine("\n----------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine($"\nYou attack the Gunterius the Knight's <{limb}> and deal <{damage}> damage!\n");
+        Console.WriteLine($"\nYou attack lysander's <{limb}> and deal <{damage}> damage!\n");
         Console.ResetColor();
-        UpdateknightHP();
+        UpdatelysanderHP();
 
         if (targetLimb == 1)
         {
-            knightLeftHand = Math.Max(0, knightLeftHand - damage);
-            if (knightLeftHand == 0 && !knightLeftHandLost)
+            lysanderLeftHand = Math.Max(0, lysanderLeftHand - damage);
+            if (lysanderLeftHand == 0 && !lysanderLeftHandLost)
             {
-                knightLeftHandLost = true;
+                lysanderLeftHandLost = true;
                 Console.WriteLine("----------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nGunterius the Knight's left hand is now fatally damaged. Damage reduction of 25% will be applied on its attacks.\n");
+                Console.WriteLine($"\nlysander's left hand is now fatally damaged. Damage reduction of 25% will be applied on his attacks.\n");
                 Console.ResetColor();
-                damage = (int)(damage * 0.75);
-                UpdateknightHP();
+                damage *= (int)(damage * 0.75);
+                UpdatelysanderHP();
             }
         }
         else if (targetLimb == 2)
         {
-            knightRightHand = Math.Max(0, knightRightHand - damage);
-            if (knightRightHand == 0 && !knightRightHandLost)
+            lysanderRightHand = Math.Max(0, lysanderRightHand - damage);
+            if (lysanderRightHand == 0 && !lysanderRightHandLost)
             {
-                knightRightHandLost = true;
+                lysanderRightHandLost = true;
                 Console.WriteLine("----------------------------------------------------------------------");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nGunterius the Knight's right hand is now fatally damaged. Damage reduction of 25% will be applied on its attacks.\n");
+                Console.WriteLine($"\nlysander's right hand is now fatally damaged. Damage reduction of 25% will be applied on his attacks.\n");
                 Console.ResetColor();
                 damage = (int)(damage * 0.75);
-                UpdateknightHP();
+                UpdatelysanderHP();
             }
         }
     }
@@ -279,22 +343,22 @@ public class CombatProgramTwo
 
     }
 
-    private static void knightDefend()
+    private static void lysanderDefend()
     {
         Console.WriteLine("----------------------------------------------------------------------");
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\nGunterius the Knight's chose to defend. The Gunterius the Knight's  takes reduced damage on the next attack.");
+        Console.WriteLine("\nlysander chose to defend. lysander takes reduced damage on the next attack.");
         Console.ResetColor();
     }
 
     void UpdatePlayerHP()
     {
-        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 :playerRightHand);
+        playerHP = (playerLeftHandLost ? 0 : playerLeftHand) + (playerRightHandLost ? 0 : playerRightHand);
     }
 
-    void UpdateknightHP()
+    void UpdatelysanderHP()
     {
-        knightHP = (knightLeftHandLost ? 0 : knightLeftHand) + (knightRightHandLost ? 0 : knightRightHand);
+        lysanderHP = (lysanderLeftHandLost ? 0 : lysanderLeftHand) + (lysanderRightHandLost ? 0 : lysanderRightHand);
     }
 
     static int GetValidInput(int minValue, int maxValue)
